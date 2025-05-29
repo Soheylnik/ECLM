@@ -1,0 +1,1 @@
+signup.txt:8 ---> href="{% static " (has {%}، {} یا URL مطلق)
