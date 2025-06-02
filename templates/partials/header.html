@@ -1,0 +1,240 @@
+{% load static %}
+<header class="site-header site-header--menu-right bg-default py-7 py-lg-0 site-header--absolute site-header--sticky">
+      <div class="container">
+        <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
+          <!-- Brand Logo-->
+          <div class="brand-logo">
+            <a href="index-2.html">
+              <!-- light version logo (logo must be black)-->
+              <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
+              <!-- Dark version logo (logo must be White)-->
+              <img src="{% static 'image/logo-main-white.png' %}" alt="" class="dark-version-logo">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="mobile-menu">
+            <div class="navbar-nav-wrapper">
+              <ul class="navbar-nav main-menu">
+                <li class="nav-item dropdown active">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="drop-menu-item">
+                      <a href="home-1.html">
+                       خانه اصلی 01
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-2.html">
+                       خانه اصلی 02
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-3.html">
+                       خانه اصلی 03
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       صفحات شغلی
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                          شغل گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            شغل لیست
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="jobdetails.html">
+                        جزییات شغل
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        دشبرد
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
+                        <li class="drop-menu-item">
+                          <a href="dashboard-main.html">
+                            صفحه اصلی دشبرد
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-settings.html">
+                            تنظیمات
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-applicants.html">
+                            متقاضیان
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-jobs.html">
+                          شغل‌های پست شده
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات کارجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile-main.html">
+                            پروفایل کارجو
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile.html">
+                            پروفایل کارجو 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات جستجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                            جستجو گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            جستجو لیست 01
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-2.html">
+                            جستجو لیست 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="company-profile.html">
+                       پروفایل شرکت
+                      </a>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      اکانت
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#login">
+                           ورود
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#signup">
+                          ثبت نام
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات پایه
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
+                        <li class="drop-menu-item">
+                          <a href="faq.html">
+                            پرسش و پاسخ
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="error-404.html">
+                            404
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="pricing-page.html">
+                          صفحه قیمت گذاری
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="contact.html">ارتباط با ما</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">پشتیبانی</a>
+                </li>
+              </ul>
+            </div>
+            <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+              <i class="gr-cross-icon"></i>
+            </button>
+          </div>
+            {% if user.is_authenticated %}
+  <!-- اگر کاربر وارد شده باشد -->
+  <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
+    <div>
+      <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
+        <i class="fas fa-bell heading-default-color"></i>
+        <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+      </a>
+    </div>
+    <div>
+      <div class="dropdown show-gr-dropdown py-5">
+        <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="circle-40">
+            <img src="{% static 'image/header-profile.png' %}" alt="">
+          </div>
+          <i class="fas fa-chevron-down heading-default-color ml-6"></i>
+        </a>
+        <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">ویرایش پروفایل</a>
+          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <!-- اگر کاربر وارد نشده باشد -->
+  <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
+    <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javascript:;" data-toggle="modal" data-target="#login">
+      ورود
+    </a>
+    <a class="btn btn-primary text-uppercase font-size-3" href="javascript:;" data-toggle="modal" data-target="#signup">
+      ثبت نام
+    </a>
+  </div>
+{% endif %}
+          <!-- Mobile Menu Hamburger-->
+          <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <i class="icon icon-simple-remove icon-close"></i> -->
+            <span class="hamburger hamburger--squeeze js-hamburger">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </span>
+          </button>
+          <!--/.Mobile Menu Hamburger Ends-->
+        </nav>
+      </div>
+    </header>

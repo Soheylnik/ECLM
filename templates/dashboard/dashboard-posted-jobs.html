@@ -1,0 +1,883 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/dashboard-posted-jobs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:04:45 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> جاب کمپ - قالب کاریابی آنلاین </title>
+  <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/x-icon">
+  <!-- Bootstrap , fonts & icons  -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/icon-font/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/typography-font/typo.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-5/css/all.css' %}">
+  <!-- Plugin'stylesheets  -->
+  <link rel="stylesheet" href="{% static 'plugins/aos/aos.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/fancybox/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/nice-select/nice-select.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/ui-range-slider/jquery-ui.css' %}">
+  <!-- Vendor stylesheets  -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <!-- Custom stylesheet -->
+</head>
+
+<body>
+  <div class="site-wrapper overflow-hidden bg-default-2 min-h-100vh">
+    <!-- Header Area -->
+    <header class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
+      <div class="container-fluid-fluid px-10">
+        <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
+          <!-- Brand Logo-->
+          <div class="brand-logo">
+            <a href="index-2.html">
+              <!-- light version logo (logo must be black)-->
+              <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
+              <!-- Dark version logo (logo must be White)-->
+              <img src="{% static 'image/logo-main-white.png' %}" alt="" class="dark-version-logo">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="mobile-menu">
+            <div class="navbar-nav-wrapper">
+              <ul class="navbar-nav main-menu">
+                <li class="nav-item dropdown active">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="drop-menu-item">
+                      <a href="home-1.html">
+                       خانه اصلی 01
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-2.html">
+                       خانه اصلی 02
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-3.html">
+                       خانه اصلی 03
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       صفحات شغلی
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                          شغل گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            شغل لیست
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="jobdetails.html">
+                        جزییات شغل
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        دشبرد
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
+                        <li class="drop-menu-item">
+                          <a href="dashboard-main.html">
+                            صفحه اصلی دشبرد
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-settings.html">
+                            تنظیمات
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-applicants.html">
+                            متقاضیان
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-jobs.html">
+                          شغل‌های پست شده
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات کارجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile-main.html">
+                            پروفایل کارجو
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile.html">
+                            پروفایل کارجو 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات جستجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                            جستجو گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            جستجو لیست 01
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-2.html">
+                            جستجو لیست 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="company-profile.html">
+                       پروفایل شرکت
+                      </a>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      اکانت
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#login">
+                           ورود
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#signup">
+                          ثبت نام
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات پایه
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
+                        <li class="drop-menu-item">
+                          <a href="faq.html">
+                            پرسش و پاسخ
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="error-404.html">
+                            404
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="pricing-page.html">
+                          صفحه قیمت گذاری
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="contact.html">ارتباط با ما</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">پشتیبانی</a>
+                </li>
+              </ul>
+            </div>
+            <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+              <i class="gr-cross-icon"></i>
+            </button>
+          </div>
+           {% if user.is_authenticated %}
+  <!-- اگر کاربر وارد شده باشد -->
+  <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
+    <div>
+      <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
+        <i class="fas fa-bell heading-default-color"></i>
+        <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+      </a>
+    </div>
+    <div>
+      <div class="dropdown show-gr-dropdown py-5">
+        <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="circle-40">
+            <img src="{% static 'image/header-profile.png' %}" alt="">
+          </div>
+          <i class="fas fa-chevron-down heading-default-color ml-6"></i>
+        </a>
+        <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">ویرایش پروفایل</a>
+          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <!-- اگر کاربر وارد نشده باشد -->
+  <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
+    <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javascript:;" data-toggle="modal" data-target="#login">
+      ورود
+    </a>
+    <a class="btn btn-primary text-uppercase font-size-3" href="javascript:;" data-toggle="modal" data-target="#signup">
+      ثبت نام
+    </a>
+  </div>
+{% endif %}
+          <!-- Mobile Menu Hamburger-->
+          <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <i class="icon icon-simple-remove icon-close"></i> -->
+            <span class="hamburger hamburger--squeeze js-hamburger">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </span>
+          </button>
+          <!--/.Mobile Menu Hamburger Ends-->
+        </nav>
+      </div>
+    </header>
+    <!-- navbar- -->
+        <!-- Login Modal -->
+        <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog max-width-px-840 position-relative">
+            <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+              <div class="row no-gutters">
+                <div class="col-lg-5 col-md-6">
+                  <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                    <div class="pb-9">
+                      <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                        خوش آمدید
+                      </h3>
+                      <p class="mb-0 font-size-4 text-white">برای ادامه حساب خود وارد شوید
+                         و مشاغل جدید را کشف کنید.</p>
+                    </div>
+                    <div class="border-top border-default-color-2 mt-auto">
+                      <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            295
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                             امروز ارسال شده</p>
+                        </div>
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            14
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                             ثبت شده</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                  <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                    <div class="row">
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با لینکدین وارد شوید</span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با گوگل وارد شوید</span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با فیسبوک وارد شوید</span></a>
+                      </div>
+                    </div>
+                    <div class="or-devider">
+                      <span class="font-size-3 line-height-reset "> یا </span>
+                    </div>
+                    <form action="https://uxtheme.net/">
+                      <div class="form-group">
+                        <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                        </div>
+                      </div>
+                      <div class="form-group d-flex flex-wrap justify-content-between">
+                        <label for="terms-check" class="gr-check-input d-flex  mr-3">
+                          <input class="d-none" type="checkbox" id="terms-check">
+                          <span class="checkbox mr-5"></span>
+                          <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">به خاطرسپاری رمزعبور</span>
+                        </label>
+                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                      </div>
+                      <div class="form-group mb-8">
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
+                      </div>
+                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sign Up Modal -->
+        <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog max-width-px-840 position-relative">
+            <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+              <div class="row no-gutters">
+                <div class="col-lg-5 col-md-6">
+                  <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                    <div class="pb-9">
+                      <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                       امروز یک حساب کاربری رایگان ایجاد کنید
+                      </h3>
+                      <p class="mb-0 font-size-4 text-white">حساب خود را برای ادامه ایجاد کنید
+                         و مشاغل جدید را کشف کنید.</p>
+                    </div>
+                    <div class="border-top border-default-color-2 mt-auto">
+                      <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            295
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                             امروز ارسال شده</p>
+                        </div>
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            14
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                             ثبت شده</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                  <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                    <div class="row">
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از لینکدین </span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از گوگل </span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از فیسبوک </span></a>
+                      </div>
+                    </div>
+                    <div class="or-devider">
+                      <span class="font-size-3 line-height-reset"> یا </span>
+                    </div>
+                    <form action="https://uxtheme.net/">
+                      <div class="form-group">
+                        <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                      </div>
+                      <div class="form-group">
+                        <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
+                        </div>
+                      </div>
+                      <div class="form-group d-flex flex-wrap justify-content-between mb-1">
+                        <label for="terms-check2" class="gr-check-input d-flex  mr-3">
+                          <input class="d-none" type="checkbox" id="terms-check2">
+                          <span class="checkbox mr-5"></span>
+                          <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
+                        </label>
+                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                      </div>
+                      <div class="form-group mb-8">
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
+                      </div>
+                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
+      <div class="brand-logo px-11">
+        <a href="https://shade.uxtheme.net/shade-pro">
+          <img src="{% static 'image/logo-main-black.png' %}" alt="">
+        </a>
+      </div>
+      <div class="my-15 px-11">
+        <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>ارسال شغل جدید</a>
+      </div>
+      <ul class="list-unstyled dashboard-layout-sidebar">
+        <li class=""><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
+        <li class="active"><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>شغل پست شده</a></li>
+        <li class=""><a href="dashboard-posted-applicants.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>درخواست ها<span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
+        <li class=""><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+      </ul>
+    </div>
+    <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
+      <i class="icon icon-sidebar-2"></i>
+    </a>
+    <div class="dashboard-main-container mt-25 mt-lg-31" id="dashboard-body">
+      <div class="container">
+        <div class="mb-18">
+          <div class="row mb-11 align-items-center">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <h3 class="font-size-6 mb-0">مشاغل پست شده (4)</h3>
+            </div>
+            <div class="col-lg-6">
+              <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
+                <p class="font-size-4 mb-0 mr-6 py-2">فیلتر بر اساس:</p>
+                <div class="h-px-48">
+                  <select name="country" id="country" class="nice-select pl-7 h-100 arrow-3 arrow-3-black min-width-px-273 font-weight-semibold text-black-2">
+                    <option value="" data-display=" طراح محصول ">تمام وقت</option>
+                    <option value="">پاره وقت</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white shadow-8 pt-7 rounded pb-9 px-11">
+            <div class="table-responsive ">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" class="pl-0 border-0 font-size-4 font-weight-normal">نام</th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">عنوان شغلی</th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">شهر</th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">تاریخ ایجاد</th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">درخواست ها</th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
+                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border border-color-2">
+                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
+                      <div class="">
+                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">سنیور مدیر محصول</a>
+                      </div>
+                    </th>
+                    <td class="table-y-middle py-7 min-width-px-135">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-125">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">نیویورک</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-155">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">12 آذر, 1399</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-205">
+                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">47</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-80">
+                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-100">
+                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
+                    </td>
+                  </tr>
+                  <tr class="border border-color-2">
+                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
+                      <div class="">
+                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">طراح رابط کاربری</a>
+                      </div>
+                    </th>
+                    <td class="table-y-middle py-7 min-width-px-135">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-125">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">ریموت</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-155">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">24 آذر, 1399</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-205">
+                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">145</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-80">
+                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-100">
+                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
+                    </td>
+                  </tr>
+                  <tr class="border border-color-2">
+                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
+                      <div class="">
+                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">سرپرست مارکتینگ</a>
+                      </div>
+                    </th>
+                    <td class="table-y-middle py-7 min-width-px-135">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-125">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">لندن</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-155">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">15 آذر, 1399</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-205">
+                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">62</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-80">
+                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-100">
+                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
+                    </td>
+                  </tr>
+                  <tr class="border border-color-2">
+                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
+                      <div class="">
+                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">فول استک دولوپر</a>
+                      </div>
+                    </th>
+                    <td class="table-y-middle py-7 min-width-px-135">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">پاره وقت</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-125">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">کالیفرنیا</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-155">
+                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">29 دی, 1399</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-205">
+                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">184</h3>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-80">
+                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
+                    </td>
+                    <td class="table-y-middle py-7 min-width-px-100">
+                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="employe-profile" tabindex="-1" aria-hidden="true">
+      <div class="container">
+        <!-- back Button -->
+        <div class="row justify-content-center">
+          <div class="col-12 mt-13">
+            <div class="mb-9">
+              <a class="d-flex align-items-center ml-4" href="javacript:" data-dismiss="modal"> <i
+              class="icon icon-small-right bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8">
+            </i><span class="text-uppercase font-size-3 font-weight-bold text-white">برگشت</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- back Button End -->
+        <div class="modal-dialog mw-100">
+          <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+            <div class="row no-gutters">
+              <!-- Left Sidebar Start -->
+              <div class="col-12 col-xl-3 col-lg-4 col-md-5 mb-13 mb-lg-0 border-right border-mercury">
+                <div class="pl-lg-5">
+                  <!-- Top Start -->
+                  <div class="bg-white">
+                    <div class="px-5 py-11 text-center border-bottom border-mercury">
+                      <a class="mb-4" href="#"><img class="circle-54" src="{% static 'image/l3/png/pro-img.png' %}" alt=""></a>
+                      <h4 class="mb-0">
+                        <a class="text-black-2 font-size-6 font-weight-semibold" href="#">دیوید هنریکس</a>
+                      </h4>
+                      <p class="mb-8">
+                        <a class="text-gray font-size-4" href="#"> طراح محصول </a>
+                      </p>
+                      <div class="icon-link d-flex align-items-center justify-content-center flex-wrap">
+                        <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#">
+                          <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#">
+                          <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a class="text-smoke circle-32 bg-concrete mr-5 hover-bg-green" href="#">
+                          <i class="fab fa-behance"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Top End -->
+                    <!-- Bottom Start -->
+                    <div class="px-5 px-xs-12 px-lg-5 pt-lg-5 pt-9 px-xl-9 pt-xl-9 pb-5">
+                      <h5 class="text-black-2 mb-8 font-size-5"> اطلاعات تماس </h5>
+                      <!-- Single List -->
+                      <div class="mb-7">
+                        <p class="font-size-4 mb-0 text-gray"> محل </p>
+                        <h5 class="font-size-4 font-weight-semibold mb-0 text-black-2 text-break"> نیویورک، آمریکا </h5>
+                      </div>
+                      <!-- Single List -->
+                      <!-- Single List -->
+                      <div class="mb-7">
+                        <p class="font-size-4 mb-0 text-gray"> ایمیل </p>
+                        <h5 class="font-size-4 font-weight-semibold mb-0">
+                          <a class="text-black-2 text-break" href="mailto:name_ac@gmail.com">name_ac@gmail.com</a>
+                        </h5>
+                      </div>
+                      <!-- Single List -->
+                      <!-- Single List -->
+                      <div class="mb-7">
+                        <p class="font-size-4 mb-0 text-gray"> شماره </p>
+                        <h5 class="font-size-4 font-weight-semibold mb-0">
+                          <a class="text-black-2 text-break" href="tel:+999565562">+999 565 562</a>
+                        </h5>
+                      </div>
+                      <!-- Single List -->
+                      <!-- Single List -->
+                      <div class="mb-7">
+                        <p class="font-size-4 mb-0 text-gray"> وبسایت </p>
+                        <h5 class="font-size-4 font-weight-semibold mb-0">
+                          <a class="text-break" href="#">www.nameac.com</a>
+                        </h5>
+                      </div>
+                      <!-- Single List -->
+                    </div>
+                    <!-- Bottom End -->
+                  </div>
+                </div>
+              </div>
+              <!-- Left Sidebar End -->
+              <!-- Middle Content -->
+              <div class="col-12 col-xl-6 col-lg-8 col-md-7 order-2 order-lg-1 border-right border-mercury">
+                <div class="bg-white rounded-4 overflow-auto h-1173">
+                  <!-- Excerpt Start -->
+                  <div class="pr-xl-0 pr-xxl-14 p-5 px-xs-12 pt-7 pb-5">
+                    <h4 class="font-size-6 font-weight-semibold mb-7 mt-5 text-black-2"> درباره ما </h4>
+                    <p class="font-size-4 mb-8"> یک متخصص با استعداد و دارای سابقه علمی در IT و اثبات شده
+                       تجربه توسعه تجاری به عنوان توسعه دهنده C ++ از سال 1999. دانش کاملی در مورد نرم افزار دارد
+                       چرخه زندگی توسعه در بیش از 140 پروژه برون سپاری توسعه نرم افزار شرکت داشت. </p>
+                    <p class="font-size-4 mb-8" > زبانهای برنامه نویسی: C / C ++ ، .NET C ++ ، Python ، Bash ، Shell ، PERL ، Regular
+                       عبارات ، پایتون ، اسکریپت فعال </p>
+                  </div>
+                  <!-- Excerpt End -->
+                  <!-- Skills -->
+                  <div class="border-top border-mercury pr-xl-0 pr-xxl-14 p-5 pl-xs-12 pt-7 pb-5">
+                    <h4 class="font-size-6 font-weight-semibold mb-7 mt-5 text-black-2"> مهارتها </h4>
+                    <ul class="list-unstyled d-flex align-items-center flex-wrap">
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">اجیل </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#">وایرفریم </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#"> پروتاپینگ </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#"> اطلاعات </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#"> واترفال مودال </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#"> نیولایوت </a>
+                      </li>
+                      <li>
+                        <a class="bg-polar text-black-2  mr-6 px-7 mt-2 mb-2 font-size-3 rounded-3 min-height-32 d-flex align-items-center" href="#"> بروزینگ </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Skills End -->
+                  <!-- Card Section Start -->
+                  <div class="border-top border-mercury p-5 pl-xs-12 pt-7 pb-5">
+                    <h4 class="font-size-6 font-weight-semibold mb-7 mt-5 text-black-2"> تجربه کاری </h4>
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                        <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                          <img src="{% static 'image/l2/png/featured-job-logo-1.png' %}" alt="">
+                        </div>
+                        <div class="w-100 mt-n2">
+                          <h3 class="mb-0">
+                            <a class="font-size-5 font-weight-semibold text-black-2" href="#"> طراح ارشد محصولات </a>
+                          </h3>
+                          <a href="#" class="font-size-4 text-default-color line-height-2"> ایراندبی </a>
+                          <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                            <a href="#" class="font-size-3 text-gray">مهر 1396- دی 1399- 3 سال</a>
+                            <a href="#" class="font-size-3 text-gray">
+                              <span class="mr-4" style="margin-top: -2px"><img
+                              src="image/svg/icon-loaction-pin-black.svg" alt=""></span>نیویورک ، آمریکا</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                        <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                          <img src="{% static 'image/l1/png/feature-brand-1.png' %}" alt="">
+                        </div>
+                        <div class="w-100 mt-n2">
+                          <h3 class="mb-0">
+                            <a class="font-size-5 font-weight-semibold text-black-2" href="#">سنیور طراح رابط ‌کاربری و تجربه‌کاربری</a>
+                          </h3>
+                          <a href="#" class="font-size-4 text-default-color line-height-2">شرکت گوگل</a>
+                          <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                            <a href="#" class="font-size-3 text-gray">مهر 1396- دی 1399- 3 سال</a>
+                            <a href="#" class="font-size-3 text-gray">
+                              <span class="mr-4" style="margin-top: -2px"><img
+                              src="image/svg/icon-loaction-pin-black.svg" alt=""></span>نیویورک ، آمریکا</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+                  </div>
+                  <!-- Card Section End -->
+                  <!-- Card Section Start -->
+                  <div class="border-top border-mercury p-5 pl-xs-12 pt-7 pb-5">
+                    <h4 class="font-size-6 font-weight-semibold mb-7 mt-5 text-black-2"> تحصیلات </h4>
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                        <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                          <img src="{% static 'image/svg/harvard.svg' %}" alt="">
+                        </div>
+                        <div class="w-100 mt-n2">
+                          <h3 class="mb-0">
+                            <a class="font-size-5 font-weight-semibold text-black-2" href="#"> مدرک طراحی هنر </a>
+                          </h3>
+                          <a href="#" class="font-size-4 text-default-color line-height-2"> دانشگاه هاروارد </a>
+                          <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                            <a href="#" class="font-size-3 text-gray">مهر 1396- دی 1399- 3 سال</a>
+                            <a href="#" class="font-size-3 text-gray">
+                              <span class="mr-4" style="margin-top: -2px"><img
+                              src="image/svg/icon-loaction-pin-black.svg" alt=""></span>برلین ، آمریکا</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                        <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                          <img class="circle-72" src="{% static 'image/svg/mit.svg' %}" alt="">
+                        </div>
+                        <div class="w-100 mt-n2">
+                          <h3 class="mb-0">
+                            <a class="font-size-5 font-weight-semibold text-black-2" href="#">لیسانس مهندسی نرم افزار</a>
+                          </h3>
+                          <a href="#" class="font-size-4 text-default-color line-height-2">موسسه تکنولوژی مانپال</a>
+                          <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                            <a href="#" class="font-size-3 text-gray">دی 1395 -  آذر 1399  - 4 سال</a>
+                            <a href="#" class="font-size-3 text-gray">
+                              <span class="mr-4" style="margin-top: -2px"><img
+                              src="image/svg/icon-loaction-pin-black.svg" alt=""></span>نیویورک ، آمریکا</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+                    <!-- Single Card -->
+                    <div class="w-100">
+                      <div class="d-flex align-items-center pr-11 mb-9 flex-wrap flex-sm-nowrap">
+                        <div class="square-72 d-block mr-8 mb-7 mb-sm-0">
+                          <img class="circle-72" src="{% static 'image/svg/mit.svg' %}" alt="">
+                        </div>
+                        <div class="w-100 mt-n2">
+                          <h3 class="mb-0">
+                            <a class="font-size-5 font-weight-semibold text-black-2" href="#">لیسانس مهندسی نرم افزار</a>
+                          </h3>
+                          <a href="#" class="font-size-4 text-default-color line-height-2">موسسه تکنولوژی مانپال</a>
+                          <div class="d-flex align-items-center justify-content-md-between flex-wrap">
+                            <a href="#" class="font-size-3 text-gray">دی 1395 -  آذر 1399  - 4 سال</a>
+                            <a href="#" class="font-size-3 text-gray">
+                              <span class="mr-4" style="margin-top: -2px"><img
+                              src="image/svg/icon-loaction-pin-black.svg" alt=""></span>نیویورک ، آمریکا</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Single Card End -->
+                  </div>
+                  <!-- Card Section End -->
+                </div>
+              </div>
+              <!-- Middle Content -->
+              <!-- Right Sidebar Start -->
+              <div class="col-12 col-xl-3 order-3 order-lg-2 bg-default-2">
+                <div class="text-center mb-13 mb-lg-0 mt-12">
+                  <button class="btn btn-primary btn-xl mb-7 d-block mx-auto text-uppercase"> تماس </button>
+                  <button class="btn btn-outline-gray btn-xl mb-7 d-block mx-auto text-uppercase">رد کردن</button>
+                </div>
+              </div>
+              <!-- Right Sidebar End -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Scripts -->
+  <script src="{% static 'js/vendor.min.js' %}"></script>
+  <!-- Plugin's Scripts -->
+  <script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'plugins/nice-select/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'plugins/aos/aos.min.js' %}"></script>
+  <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+  <script src="{% static 'plugins/counter-up/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'plugins/counter-up/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'plugins/ui-range-slider/jquery-ui.js' %}"></script>
+  <!-- Activation Script -->
+  <!-- <script src="{% static 'js/drag-n-drop.js' %}"></script> -->
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/dashboard-posted-jobs.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:04:45 GMT -->
+</html>

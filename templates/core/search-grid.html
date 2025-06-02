@@ -1,0 +1,479 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="site-wrapper overflow-hidden ">
+    <!-- Header start  -->
+    <!-- Header Area -->
+    
+    <!-- navbar- -->
+    <!-- Login Modal -->
+    <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog max-width-px-840 position-relative">
+        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+          <div class="row no-gutters">
+            <div class="col-lg-5 col-md-6">
+              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                <div class="pb-9">
+                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                    خوش آمدید 
+                  </h3>
+                  <p class="mb-0 font-size-4 text-white">برای ادامه حساب خود وارد شوید
+                     و مشاغل جدید را کشف کنید.</p>
+                </div>
+                <div class="border-top border-default-color-2 mt-auto">
+                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        295
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                         امروز ارسال شده</p>
+                    </div>
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        14
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                         ثبت شده</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                <div class="row">
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با لینکدین وارد شوید</span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با گوگل وارد شوید</span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با فیسبوک وارد شوید</span></a>
+                  </div>
+                </div>
+                <div class="or-devider">
+                  <span class="font-size-3 line-height-reset "> یا </span>
+                </div>
+                <form action="https://uxtheme.net/">
+                  <div class="form-group">
+                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex flex-wrap justify-content-between">
+                    <label for="terms-check" class="gr-check-input d-flex  mr-3">
+                      <input class="d-none" type="checkbox" id="terms-check">
+                      <span class="checkbox mr-5"></span>
+                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">به خاطرسپاری رمزعبور</span>
+                    </label>
+                    <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                  </div>
+                  <div class="form-group mb-8">
+                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
+                  </div>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sign Up Modal -->
+    <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog max-width-px-840 position-relative">
+        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+          <div class="row no-gutters">
+            <div class="col-lg-5 col-md-6">
+              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                <div class="pb-9">
+                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                   امروز یک حساب کاربری رایگان ایجاد کنید
+                  </h3>
+                  <p class="mb-0 font-size-4 text-white">حساب خود را برای ادامه ایجاد کنید
+                     و مشاغل جدید را کشف کنید.</p>
+                </div>
+                <div class="border-top border-default-color-2 mt-auto">
+                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        295
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                         امروز ارسال شده</p>
+                    </div>
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        14
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                         ثبت شده</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                <div class="row">
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از لینکدین </span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از گوگل </span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از فیسبوک </span></a>
+                  </div>
+                </div>
+                <div class="or-devider">
+                  <span class="font-size-3 line-height-reset"> یا </span>
+                </div>
+                <form action="https://uxtheme.net/">
+                  <div class="form-group">
+                    <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                  </div>
+                  <div class="form-group">
+                    <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex flex-wrap justify-content-between mb-1">
+                    <label for="terms-check2" class="gr-check-input d-flex  mr-3">
+                      <input class="d-none" type="checkbox" id="terms-check2">
+                      <span class="checkbox mr-5"></span>
+                      <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
+                    </label>
+                    <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                  </div>
+                  <div class="form-group mb-8">
+                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
+                  </div>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header end -->
+    <!-- Main Content Start -->
+    <div class="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 col-xs-8">
+            <!-- Sidebar Start -->
+            <div class="widgets mb-11">
+              <h4 class="font-size-6 font-weight-semibold mb-6">عنوان شغلی</h4>
+              <ul class="list-unstyled filter-check-list">
+                <li class="mb-2"><a href="#" class="toggle-item">تمام وقت</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">پاره وقت</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">پروژه ای</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">کارآموزی</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">موقت</a></li>
+              </ul>
+            </div>
+            <div class="widgets mb-11 ">
+              <div class="d-flex align-items-center pr-15 pr-xs-0 pr-md-0 pr-xl-22">
+                <h4 class="font-size-6 font-weight-semibold mb-6 w-75">رنج حقوق</h4>
+                <!-- Range Slider -->
+                <div class="slider-price w-25 text-right mr-7">
+                  <p class="font-weight-bold">
+                    <input class="text-primary font-weight-semibold font-size-4 focus-reset" type="text" id="amount" readonly="">
+                  </p>
+                </div>
+              </div>
+              <div class="graph text-center mx-0 mt-5 position-relative chart-postion">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="range-slider">
+                <div class="pm-range-slider"></div>
+              </div>
+            </div>
+            <div class="widgets mb-11">
+              <h4 class="font-size-6 font-weight-semibold mb-6">سطح تجربه </h4>
+              <ul class="list-unstyled filter-check-list">
+                <li class="mb-2"><a href="#" class="toggle-item">همه</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">سنیور</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">مید</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">جونیور</a></li>
+              </ul>
+            </div>
+            <div class="widgets mb-11">
+              <h4 class="font-size-6 font-weight-semibold mb-6">تاریخ ارسال</h4>
+              <ul class="list-unstyled filter-check-list">
+                <li class="mb-2"><a href="#" class="toggle-item">همه</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">دیروز</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">سه روز قبل</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">هفته قبل</a></li>
+              </ul>
+            </div>
+            <!-- Sidebar End -->
+          </div>
+          <div class="col-12 col-md-8 col-xs-12 ">
+            <!-- form -->
+            <form action="https://uxtheme.net/" class="search-form search-2-adjustment ml-lg-0 ml-md-15">
+              <div class="filter-search-form-2 bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
+                <div class="filter-inputs">
+                  <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
+                    <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="طراح رابط کاربری">
+                    <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
+                    <i
+                    class="icon icon-zoom-2 text-primary font-weight-bold"></i>
+                  </span>
+                  </div>
+                  <!-- .select-city starts -->
+                  <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
+                    <select name="country" id="country" class="nice-select pl-13 h-100 arrow-3 font-size-4">
+                      <option data-display="شهر، موقعیت مکانی، ریموت">شهر</option>
+                      <option value="">آمریکا</option>
+                      <option value="">عربستان</option>
+                      <option value="">بنگلادش</option>
+                      <option value="">پاکستان</option>
+                    </select>
+                    <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
+                    <i
+                    class="icon icon-pin-3 text-primary font-weight-bold"></i>
+                  </span>
+                  </div>
+                  <!-- ./select-city ends -->
+                </div>
+                <div class="button-block">
+                  <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">جستجو</button>
+                </div>
+              </div>
+            </form>
+            <div class="pt-12 ml-lg-0 ml-md-15">
+              <div class="d-flex align-items-center justify-content-between">
+                <h5 class="font-size-4 font-weight-normal text-default-color">
+                  <span class="heading-default-color">120</span>
+                  نتایج برای<span class="heading-default-color">طراح رابط کاربری</span>
+                </h5>
+                <div class="d-flex align-items-center result-view-type">
+                  <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="search-list-1.html">
+                    <i class="fa fa-list-ul"></i>
+                  </a>
+                  <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active" href="search-grid.html">
+                    <i class="fa fa-th-large"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="pt-6">
+                <div class="row justify-content-center">
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-1.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">شرکت گوگل</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#"> طراح محصول </a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-2.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">ایراندبی</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">طراح رابط و تجربه کاربری</a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-3.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">شاپیفای</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">آی او اس دولوپر</a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-4.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">اوبر</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">طراح هنری </a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-5.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">فیسبوک</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">مدیر مارکتینگ </a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <!-- Start Feature One -->
+                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                      <div class="d-block mb-7">
+                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-6.png' %}" alt=""></a>
+                      </div>
+                      <a href="#" class="font-size-3 d-block mb-0 text-gray">اکولوس</a>
+                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">مهندس نرم افزار</a></h2>
+                      <ul class="list-unstyled mb-1 card-tag-list">
+                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
+                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
+                          </a></li>
+                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
+                          </a></li>
+                      </ul>
+                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
+                      <div class="card-btn-group">
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
+                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
+                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
+                      </div>
+                    </div>
+                    <!-- End Feature One -->
+                  </div>
+                </div>
+              </div>
+              <div class="text-center pt-5 pt-lg-13">
+                <a class="text-green font-weight-bold text-uppercase font-size-3 d-flex align-items-center justify-content-center" href="#">بارگذاری بیشتر<i class="fas fa-sort-down ml-3 mt-n2 font-size-4"></i>
+                </a>
+              </div>
+            </div>
+            <!-- form end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+{% endblock %}

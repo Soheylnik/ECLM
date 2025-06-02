@@ -1,0 +1,569 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+ 
+<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/dashboard-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:04:45 GMT -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> جاب کمپ - قالب کاریابی آنلاین </title>
+  <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/x-icon">
+  <!-- Bootstrap , fonts & icons  -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/icon-font/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/typography-font/typo.css' %}">
+  <link rel="stylesheet" href="{% static 'fonts/fontawesome-5/css/all.css' %}">
+  <!-- Plugin'stylesheets  -->
+  <link rel="stylesheet" href="{% static 'plugins/aos/aos.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/fancybox/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/nice-select/nice-select.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/ui-range-slider/jquery-ui.css' %}">
+  <!-- Vendor stylesheets  -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <!-- Custom stylesheet -->
+</head>
+
+<body>
+  <div class="site-wrapper overflow-hidden bg-default-2">
+    <!-- Header Area -->
+    <header class="site-header site-header--menu-right bg-default position-fixed py-7 py-xs-0 site-header--absolute">
+      <div class="container-fluid-fluid px-10">
+        <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
+          <!-- Brand Logo-->
+          <div class="brand-logo">
+            <a href="index-2.html">
+              <!-- light version logo (logo must be black)-->
+              <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
+              <!-- Dark version logo (logo must be White)-->
+              <img src="{% static 'image/logo-main-white.png' %}" alt="" class="dark-version-logo">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="mobile-menu">
+            <div class="navbar-nav-wrapper">
+              <ul class="navbar-nav main-menu">
+                <li class="nav-item dropdown active">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="drop-menu-item">
+                      <a href="home-1.html">
+                       خانه اصلی 01
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-2.html">
+                       خانه اصلی 02
+                      </a>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="home-3.html">
+                       خانه اصلی 03
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
+                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       صفحات شغلی
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                          شغل گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            شغل لیست
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="jobdetails.html">
+                        جزییات شغل
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        دشبرد
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
+                        <li class="drop-menu-item">
+                          <a href="dashboard-main.html">
+                            صفحه اصلی دشبرد
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-settings.html">
+                            تنظیمات
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-applicants.html">
+                            متقاضیان
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="dashboard-posted-jobs.html">
+                          شغل‌های پست شده
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات کارجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile-main.html">
+                            پروفایل کارجو
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="candidate-profile.html">
+                            پروفایل کارجو 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات جستجو
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="search-grid.html">
+                            جستجو گرید
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-1.html">
+                            جستجو لیست 01
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="search-list-2.html">
+                            جستجو لیست 02
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item">
+                      <a href="company-profile.html">
+                       پروفایل شرکت
+                      </a>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      اکانت
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#login">
+                           ورود
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="javacript:" data-toggle="modal" data-target="#signup">
+                          ثبت نام
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="drop-menu-item dropdown">
+                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        صفحات پایه
+                        <i class="icon icon-small-down"></i>
+                      </a>
+                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
+                        <li class="drop-menu-item">
+                          <a href="faq.html">
+                            پرسش و پاسخ
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="error-404.html">
+                            404
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="pricing-page.html">
+                          صفحه قیمت گذاری
+                          </a>
+                        </li>
+                        <li class="drop-menu-item">
+                          <a href="contact.html">ارتباط با ما</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">پشتیبانی</a>
+                </li>
+              </ul>
+            </div>
+            <button class="d-block d-lg-none offcanvas-btn-close focus-reset" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="true" aria-label="Toggle navigation">
+              <i class="gr-cross-icon"></i>
+            </button>
+          </div>
+           {% if user.is_authenticated %}
+  <!-- اگر کاربر وارد شده باشد -->
+  <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
+    <div>
+      <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
+        <i class="fas fa-bell heading-default-color"></i>
+        <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
+      </a>
+    </div>
+    <div>
+      <div class="dropdown show-gr-dropdown py-5">
+        <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="circle-40">
+            <img src="{% static 'image/header-profile.png' %}" alt="">
+          </div>
+          <i class="fas fa-chevron-down heading-default-color ml-6"></i>
+        </a>
+        <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">ویرایش پروفایل</a>
+          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <!-- اگر کاربر وارد نشده باشد -->
+  <div class="header-btns header-btn-devider ml-auto pr-2 ml-lg-6 d-none d-xs-flex">
+    <a class="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset" href="javascript:;" data-toggle="modal" data-target="#login">
+      ورود
+    </a>
+    <a class="btn btn-primary text-uppercase font-size-3" href="javascript:;" data-toggle="modal" data-target="#signup">
+      ثبت نام
+    </a>
+  </div>
+{% endif %}
+          <!-- Mobile Menu Hamburger-->
+          <button class="navbar-toggler btn-close-off-canvas  hamburger-icon border-0" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <i class="icon icon-simple-remove icon-close"></i> -->
+            <span class="hamburger hamburger--squeeze js-hamburger">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            </span>
+            </span>
+          </button>
+          <!--/.Mobile Menu Hamburger Ends-->
+        </nav>
+      </div>
+    </header>
+    <!-- navbar- -->
+        <!-- Login Modal -->
+        <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog max-width-px-840 position-relative">
+            <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+              <div class="row no-gutters">
+                <div class="col-lg-5 col-md-6">
+                  <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                    <div class="pb-9">
+                      <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                        خوش آمدید
+                      </h3>
+                      <p class="mb-0 font-size-4 text-white">برای ادامه حساب خود وارد شوید
+                         و مشاغل جدید را کشف کنید.</p>
+                    </div>
+                    <div class="border-top border-default-color-2 mt-auto">
+                      <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            295
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                             امروز ارسال شده</p>
+                        </div>
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            14
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                             ثبت شده</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                  <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                    <div class="row">
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با لینکدین وارد شوید</span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با گوگل وارد شوید</span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با فیسبوک وارد شوید</span></a>
+                      </div>
+                    </div>
+                    <div class="or-devider">
+                      <span class="font-size-3 line-height-reset "> یا </span>
+                    </div>
+                    <form action="https://uxtheme.net/">
+                      <div class="form-group">
+                        <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                        </div>
+                      </div>
+                      <div class="form-group d-flex flex-wrap justify-content-between">
+                        <label for="terms-check" class="gr-check-input d-flex  mr-3">
+                          <input class="d-none" type="checkbox" id="terms-check">
+                          <span class="checkbox mr-5"></span>
+                          <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">به خاطرسپاری رمزعبور</span>
+                        </label>
+                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                      </div>
+                      <div class="form-group mb-8">
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
+                      </div>
+                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sign Up Modal -->
+        <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog max-width-px-840 position-relative">
+            <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+              <div class="row no-gutters">
+                <div class="col-lg-5 col-md-6">
+                  <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                    <div class="pb-9">
+                      <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                       امروز یک حساب کاربری رایگان ایجاد کنید
+                      </h3>
+                      <p class="mb-0 font-size-4 text-white">حساب خود را برای ادامه ایجاد کنید
+                         و مشاغل جدید را کشف کنید.</p>
+                    </div>
+                    <div class="border-top border-default-color-2 mt-auto">
+                      <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            295
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                             امروز ارسال شده</p>
+                        </div>
+                        <div class="pt-5 px-9">
+                          <h3 class="font-size-7 text-white">
+                            14
+                          </h3>
+                          <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                             ثبت شده</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                  <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                    <div class="row">
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از لینکدین </span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از گوگل </span></a>
+                      </div>
+                      <div class="col-4 col-xs-12">
+                        <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از فیسبوک </span></a>
+                      </div>
+                    </div>
+                    <div class="or-devider">
+                      <span class="font-size-3 line-height-reset"> یا </span>
+                    </div>
+                    <form action="https://uxtheme.net/">
+                      <div class="form-group">
+                        <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                      </div>
+                      <div class="form-group">
+                        <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                        <div class="position-relative">
+                          <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
+                          <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
+                        </div>
+                      </div>
+                      <div class="form-group d-flex flex-wrap justify-content-between mb-1">
+                        <label for="terms-check2" class="gr-check-input d-flex  mr-3">
+                          <input class="d-none" type="checkbox" id="terms-check2">
+                          <span class="checkbox mr-5"></span>
+                          <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
+                        </label>
+                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                      </div>
+                      <div class="form-group mb-8">
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
+                      </div>
+                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
+      <div class="brand-logo px-11">
+        <a href="https://shade.uxtheme.net/shade-pro">
+          <img src="{% static 'image/logo-main-black.png' %}" alt="">
+        </a>
+      </div>
+      <div class="my-15 px-11">
+        <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>ارسال شغل جدید</a>
+      </div>
+      <ul class="list-unstyled dashboard-layout-sidebar">
+        <li class=""><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
+        <li class=""><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>شغل پست شده</a></li>
+        <li class=""><a href="dashboard-posted-applicants.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>درخواست ها<span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
+        <li class="active"><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+      </ul>
+    </div>
+    <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
+      <i class="icon icon-sidebar-2"></i>
+    </a>
+    <div class="dashboard-main-container mt-24 mt-lg-31" id="dashboard-body">
+      <div class="container">
+        <div class="mb-15 mb-lg-23">
+          <div class="row">
+            <div class="col-xxxl-9 px-lg-13 px-6">
+              <h5 class="font-size-6 font-weight-semibold mb-11"> بروزرسانی پروفایل شرکت</h5>
+              <div class="contact-form bg-white shadow-8 rounded-4 pl-sm-10 pl-4 pr-sm-11 pr-4 pt-15 pb-13">
+                <div class="upload-file mb-16 text-center">
+                  <div id="userActions" class="square-144 m-auto px-6 mb-7">
+                    <label for="fileUpload" class="mb-0 font-size-4 text-smoke">انتخاب کنید یا بکشید و بیندازید</label>
+                    <input type="file" id="fileUpload" class="sr-only" />
+                  </div>
+                  <!-- <img id="imgPrime" src="" alt="uploaded image placeholder" /> -->
+                  <!-- <input type="file" id="upfile"> -->
+                </div>
+                <form action="https://uxtheme.net/">
+                  <fieldset>
+                    <div class="row mb-xl-1 mb-9">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="namedash" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">نام شرکت</label>
+                          <input type="text" class="form-control h-px-48" id="namedash" placeholder="مثلا اپل">
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">نوع شرکت</label>
+                          <select id="select2" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option>B2B</option>
+                            <option>B3B</option>
+                            <option>B4B</option>
+                            <option>B5B</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-8">
+                      <div class="col-lg-6 mb-xl-0 mb-7">
+                        <div class="form-group position-relative">
+                          <label for="select3" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">اندازه شرکت </label>
+                          <select id="select3" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option>10-50</option>
+                            <option>50-70</option>
+                            <option>70-80</option>
+                            <option>80-90</option>
+                            <option>90-100</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group position-relative">
+                          <label for="address" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">محل یا دورکاری</label>
+                          <select name="address" id="address" class="nice-select pl-6 h-px-48 arrow-3 w-100 font-size-4">
+                            <option value="">مثلا . نیویورک, نومین 201, آمریکا</option>
+                            <option value="">مثلا . نیویورک, نومین 202, آمریکا</option>
+                            <option value="">مثلا . نیویورک, نومین 203, آمریکا</option>
+                            <option value="">مثلا . نیویورک, نومین 204, آمریکا</option>
+                            <option value="">مثلا . نیویورک, نومین 205, آمریکا</option>
+                          </select>
+                          <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">درباره شرکت</label>
+                          <textarea name="textarea" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" placeholder="در مورد ویژگی های شرکت  که آن را منحصر به فرد کرده بنویسید"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group mb-11">
+                          <label for="formGroupExampleInput" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">لینک شرکت</label>
+                          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="https://www.example.com/">
+                        </div>
+                        <input type="button" value="بروزرسانی پروفایل" class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Scripts -->
+  <script src="{% static 'js/vendor.min.js' %}"></script>
+  <!-- Plugin's Scripts -->
+  <script src="{% static 'plugins/fancybox/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'plugins/nice-select/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'plugins/aos/aos.min.js' %}"></script>
+  <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+  <script src="{% static 'plugins/counter-up/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'plugins/counter-up/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'plugins/ui-range-slider/jquery-ui.js' %}"></script>
+  <!-- Activation Script -->
+  <!-- <script src="{% static 'js/drag-n-drop.js' %}"></script> -->
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/dashboard-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:04:45 GMT -->
+</html>

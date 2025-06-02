@@ -1,0 +1,246 @@
+{% extends "parent/base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <div class="modal fade form-modal" id="login" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog max-width-px-840 position-relative">
+        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-md-n6 mr-lg-n6 focus-reset z-index-supper" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+          <div class="row no-gutters">
+            <div class="col-lg-5 col-md-6">
+              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                <div class="pb-9">
+                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                    خوش آمدید 
+                  </h3>
+                  <p class="mb-0 font-size-4 text-white">برای ادامه حساب خود وارد شوید
+                     و مشاغل جدید را کشف کنید.</p>
+                </div>
+                <div class="border-top border-default-color-2 mt-auto">
+                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        295
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                         امروز ارسال شده</p>
+                    </div>
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        14
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                         ثبت شده</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                <div class="row">
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با لینکدین وارد شوید</span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با گوگل وارد شوید</span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block">با فیسبوک وارد شوید</span></a>
+                  </div>
+                </div>
+                <div class="or-devider">
+                  <span class="font-size-3 line-height-reset "> یا </span>
+                </div>
+                <form action="https://uxtheme.net/">
+                  <div class="form-group">
+                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex flex-wrap justify-content-between">
+                    <label for="terms-check" class="gr-check-input d-flex  mr-3">
+                      <input class="d-none" type="checkbox" id="terms-check">
+                      <span class="checkbox mr-5"></span>
+                      <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">به خاطرسپاری رمزعبور</span>
+                    </label>
+                    <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                  </div>
+                  <div class="form-group mb-8">
+                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
+                  </div>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sign Up Modal -->
+    <div class="modal fade form-modal" id="signup" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog max-width-px-840 position-relative">
+        <button type="button" class="circle-32 btn-reset bg-white pos-abs-tr mt-n6 mr-lg-n6 focus-reset shadow-10" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <div class="login-modal-main bg-white rounded-8 overflow-hidden">
+          <div class="row no-gutters">
+            <div class="col-lg-5 col-md-6">
+              <div class="pt-10 pb-6 pl-11 pr-12 bg-black-2 h-100 d-flex flex-column dark-mode-texts">
+                <div class="pb-9">
+                  <h3 class="font-size-8 text-white line-height-reset pb-4 line-height-1p4">
+                   امروز یک حساب کاربری رایگان ایجاد کنید
+                  </h3>
+                  <p class="mb-0 font-size-4 text-white">حساب خود را برای ادامه ایجاد کنید
+                     و مشاغل جدید را کشف کنید.</p>
+                </div>
+                <div class="border-top border-default-color-2 mt-auto">
+                  <div class="d-flex mx-n9 pt-6 flex-xs-row flex-column">
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        295
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">مشاغل جدید
+                         امروز ارسال شده</p>
+                    </div>
+                    <div class="pt-5 px-9">
+                      <h3 class="font-size-7 text-white">
+                        14
+                      </h3>
+                      <p class="font-size-3 text-white gr-opacity-5 line-height-1p4">شرکت های جدید
+                         ثبت شده</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
+                <div class="row">
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-allports h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-linkedin pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از لینکدین </span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-poppy h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-google pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از گوگل </span></a>
+                  </div>
+                  <div class="col-4 col-xs-12">
+                    <a href="#" class="font-size-4 font-weight-semibold position-relative text-white bg-marino h-px-48 flex-all-center w-100 px-6 rounded-5 mb-4"><i class="fab fa-facebook-square pos-xs-abs-cl font-size-7 ml-xs-4"></i> <span class="d-none d-xs-block"> وارد کردن از فیسبوک </span></a>
+                  </div>
+                </div>
+                <div class="or-devider">
+                  <span class="font-size-3 line-height-reset"> یا </span>
+                </div>
+                <form action="https://uxtheme.net/">
+                  <div class="form-group">
+                    <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                  </div>
+                  <div class="form-group">
+                    <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                    <div class="position-relative">
+                      <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex flex-wrap justify-content-between mb-1">
+                    <label for="terms-check2" class="gr-check-input d-flex  mr-3">
+                      <input class="d-none" type="checkbox" id="terms-check2">
+                      <span class="checkbox mr-5"></span>
+                      <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
+                    </label>
+                    <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                  </div>
+                  <div class="form-group mb-8">
+                    <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
+                  </div>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header end -->
+    <!-- Main Content Start -->
+    <div class="bg-default-2 pt-16 pb-12 pt-lg-22 pb-lg-27">
+      <div class="container">
+        <!-- back Button -->
+        <div class="row justify-content-center mt-14">
+          <div class="col-xxl-6 col-xl-7 col-lg-8">
+            <h2 class="font-size-9 text-center mb-11">ارتباط با ما</h2>
+            <div class="bg-white px-9 pt-9 pb-7 shadow-8 rounded-4">
+              <form action="https://uxtheme.net/">
+                <div class="row">
+                  <div class="col-12 mb-7">
+                    <label for="" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">نام</label>
+                    <input type="text" class="form-control" placeholder="جان دو">
+                  </div>
+                  <div class="col-lg-6 mb-7">
+                    <label for="" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset"> ایمیل </label>
+                    <input type="text" class="form-control" placeholder="example@gmail.com">
+                  </div>
+                  <div class="col-lg-6 mb-7">
+                    <label for="" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">موضوع</label>
+                    <input type="text" class="form-control" placeholder="قرارداد ویژه">
+                  </div>
+                  <div class="col-lg-12 mb-7">
+                    <label for="message" class="font-size-4 font-weight-semibold text-black-2 mb-5 line-height-reset">پیام</label>
+                    <textarea name="" id="" placeholder="پیام خود را تایپ کنید" class="form-control h-px-144"></textarea>
+                  </div>
+                  <div class="col-lg-12 pt-4">
+                    <button class="btn btn-primary text-uppercase w-100 h-px-48">ارسال </button>
+                  </div>
+                </div>
+              </form>
+              <div class="mt-8">
+                <h3 class="font-size-4">راه های ارتباطی</h3>
+                <div class="media mb-2">
+                  <div class="mr-6">
+                    <i class="fas fa-map-marker-alt mt-2"></i>
+                  </div>
+                  <p class="font-size-4 mb-0">گریک <br>
+                آدرس فرضی در این محل </p>
+                </div>
+                <div class="media mb-2">
+                  <div class="mr-6">
+                    <i class="fas fa-phone-alt mt-2"></i>
+                  </div>
+                  <p class="font-size-4 mb-0">+999 546 646</p>
+                </div>
+                <div class="media mb-2">
+                  <div class="mr-6">
+                    <i class="fas fa-envelope mt-2"></i>
+                  </div>
+                  <p class="font-size-4 mb-0">support@uxtheme.net</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content end -->
+    <!-- footer area function start -->
+    <!-- cta section -->
+    
+    <!-- footer area function end -->
+  </div>
+{% endblock %}
+ 
+

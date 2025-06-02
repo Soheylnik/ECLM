@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-BoldItalic.html');
+    src: url('DMSans-BoldItalicd41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-BoldItalic-2.html') format('woff2'),
+        url('DMSans-BoldItalic-3.html') format('woff'),
+        url('DMSans-BoldItalic-4.html') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Italic.html');
+    src: url('DMSans-Italicd41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-Italic-2.html') format('woff2'),
+        url('DMSans-Italic-3.html') format('woff'),
+        url('DMSans-Italic-4.html') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-MediumItalic.html');
+    src: url('DMSans-MediumItalicd41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-MediumItalic-2.html') format('woff2'),
+        url('DMSans-MediumItalic-3.html') format('woff'),
+        url('DMSans-MediumItalic-4.html') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Regular.html');
+    src: url('DMSans-Regulard41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-Regular-2.html') format('woff2'),
+        url('DMSans-Regular-3.html') format('woff'),
+        url('DMSans-Regular-4.html') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Bold.html');
+    src: url('DMSans-Boldd41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-Bold-2.html') format('woff2'),
+        url('DMSans-Bold-3.html') format('woff'),
+        url('DMSans-Bold-4.html') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Medium.html');
+    src: url('DMSans-Mediumd41dd41d.html?#iefix') format('embedded-opentype'),
+        url('DMSans-Medium-2.html') format('woff2'),
+        url('DMSans-Medium-3.html') format('woff'),
+        url('DMSans-Medium-4.html') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
