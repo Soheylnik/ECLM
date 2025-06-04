@@ -1,0 +1,27 @@
+{% if downloaded_files %}
+  <h3 class="font-size-6 mb-0">فایل‌های دانلود شده شما</h3>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">عنوان فایل</th>
+          <th scope="col">نوع فایل</th>
+          <th scope="col">تاریخ آپلود</th>
+          <th scope="col">دانلود</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in downloaded_files %}
+        <tr>
+          <td>{{ file.title }}</td>
+          <td>{{ file.get_file_type_display }}</td>
+          <td>{{ file.uploaded_at|date:'Y/m/d' }}</td>
+          <td><a href="{% url 'core:download_file' slug=file.slug %}" class="btn btn-sm btn-primary">دانلود مجدد</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <div class="alert alert-info mt-4">شما هنوز هیچ فایلی دانلود نکرده‌اید.</div>
+{% endif %} 

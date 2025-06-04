@@ -1,6 +1,19 @@
 {% extends "parent/base.html" %}
 {% load static %}
 {% block content %}
+{% load humanize %}
+
+<style>
+  .truncate-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em;
+    min-height: 3em;
+  }
+</style>
 
   <div class="site-wrapper overflow-hidden ">
     <!-- Header start  -->
@@ -160,92 +173,45 @@
         <div class="row">
           <div class="col-12 col-md-4 col-xs-8">
             <!-- Sidebar Start -->
-            <div class="widgets mb-11">
+            {% comment %} <div class="widgets mb-11">
               <h4 class="font-size-6 font-weight-semibold mb-6">عنوان شغلی</h4>
               <ul class="list-unstyled filter-check-list">
-                <li class="mb-2"><a href="#" class="toggle-item">تمام وقت</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">پاره وقت</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">PDF</a></li>
+                <li class="mb-2"><a href="#" class="toggle-item">world</a></li>
                 <li class="mb-2"><a href="#" class="toggle-item">پروژه ای</a></li>
                 <li class="mb-2"><a href="#" class="toggle-item">کارآموزی</a></li>
                 <li class="mb-2"><a href="#" class="toggle-item">موقت</a></li>
               </ul>
             </div>
-            <div class="widgets mb-11 ">
-              <div class="d-flex align-items-center pr-15 pr-xs-0 pr-md-0 pr-xl-22">
-                <h4 class="font-size-6 font-weight-semibold mb-6 w-75">رنج حقوق</h4>
-                <!-- Range Slider -->
-                <div class="slider-price w-25 text-right mr-7">
-                  <p class="font-weight-bold">
-                    <input class="text-primary font-weight-semibold font-size-4 focus-reset" type="text" id="amount" readonly="">
-                  </p>
-                </div>
-              </div>
-              <div class="graph text-center mx-0 mt-5 position-relative chart-postion">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="range-slider">
-                <div class="pm-range-slider"></div>
-              </div>
-            </div>
-            <div class="widgets mb-11">
-              <h4 class="font-size-6 font-weight-semibold mb-6">سطح تجربه </h4>
-              <ul class="list-unstyled filter-check-list">
-                <li class="mb-2"><a href="#" class="toggle-item">همه</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">سنیور</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">مید</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">جونیور</a></li>
-              </ul>
-            </div>
-            <div class="widgets mb-11">
-              <h4 class="font-size-6 font-weight-semibold mb-6">تاریخ ارسال</h4>
-              <ul class="list-unstyled filter-check-list">
-                <li class="mb-2"><a href="#" class="toggle-item">همه</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">دیروز</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">سه روز قبل</a></li>
-                <li class="mb-2"><a href="#" class="toggle-item">هفته قبل</a></li>
-              </ul>
-            </div>
+            {% endcomment %}
+            
             <!-- Sidebar End -->
           </div>
           <div class="col-12 col-md-8 col-xs-12 ">
             <!-- form -->
-            <form action="https://uxtheme.net/" class="search-form search-2-adjustment ml-lg-0 ml-md-15">
+            <form method="get" class="search-form search-2-adjustment ml-lg-0 ml-md-15">
               <div class="filter-search-form-2 bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
                 <div class="filter-inputs">
                   <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                    <input class="form-control focus-reset pl-13" type="text" id="keyword" placeholder="طراح رابط کاربری">
+                    <input class="form-control focus-reset pl-13" type="text" name="keyword" id="keyword" placeholder="عنوان فایل" value="{{ search_keyword|default:'' }}">
                     <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                    <i
-                    class="icon icon-zoom-2 text-primary font-weight-bold"></i>
+                    <i class="icon icon-zoom-2 text-primary font-weight-bold"></i>
                   </span>
                   </div>
                   <!-- .select-city starts -->
-                  <div class="form-group position-relative w-lg-55 w-xl-60 w-xxl-55">
-                    <select name="country" id="country" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                      <option data-display="شهر، موقعیت مکانی، ریموت">شهر</option>
-                      <option value="">آمریکا</option>
-                      <option value="">عربستان</option>
-                      <option value="">بنگلادش</option>
-                      <option value="">پاکستان</option>
+                  <div class="form-group position-relative w-lg-30 w-xl-30 w-xxl-30">
+                    <select name="file_type" id="file_type" class="nice-select pl-13 h-100 arrow-3 font-size-4">
+                      <option value="">نوع فایل</option>
+                      {% for value, label in file_type_choices %}
+                        <option value="{{ value }}" {% if value == search_file_type %}selected{% endif %}>{{ label }}</option>
+                      {% endfor %}
                     </select>
                     <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                    <i
-                    class="icon icon-pin-3 text-primary font-weight-bold"></i>
+                    <i class="fa fa-file text-primary font-weight-bold"></i>
                   </span>
                   </div>
                   <!-- ./select-city ends -->
+                 
                 </div>
                 <div class="button-block">
                   <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">جستجو</button>
@@ -255,193 +221,39 @@
             <div class="pt-12 ml-lg-0 ml-md-15">
               <div class="d-flex align-items-center justify-content-between">
                 <h5 class="font-size-4 font-weight-normal text-default-color">
-                  <span class="heading-default-color">120</span>
-                  نتایج برای<span class="heading-default-color">طراح رابط کاربری</span>
+                  <span class="heading-default-color">{{ files|length }}</span>
+                  نتایج برای <span class="heading-default-color">محصول</span>
                 </h5>
-                <div class="d-flex align-items-center result-view-type">
-                  <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray" href="search-list-1.html">
-                    <i class="fa fa-list-ul"></i>
-                  </a>
-                  <a class="heading-default-color pl-5 font-size-6 hover-text-hitgray active" href="search-grid.html">
-                    <i class="fa fa-th-large"></i>
-                  </a>
-                </div>
+                
               </div>
               <div class="pt-6">
                 <div class="row justify-content-center">
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-1.png' %}" alt=""></a>
+                  {% for file in files %}
+                    <div class="col-12 col-lg-6">
+                      <!-- Start Feature One -->
+                      <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                        <div class="d-block mb-7">
+                          <a href="#"><img src="{% static 'image/l1/png/feature-brand-1.png' %}" alt=""></a>
+                        </div>
+                        <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="{% url 'core:jobdetails' slug=file.slug %}">{{ file.title }}</a></h2>
+                        <ul class="list-unstyled mb-1 card-tag-list">
+                          <li><span class="bg-regent-opacity-15 text-denim font-size-3 rounded-3"><i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{ file.file_type }}</span></li>
+                          <li><span class="bg-regent-opacity-15 text-orange font-size-3 rounded-3"><i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{ file.project_manager }}</span></li>
+                          <li><span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3"><i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> {% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}</span></li>
+                          <li><span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3"><i class="fa fa-file mr-2 font-weight-bold"></i> {{ file.file_size }} بایت</span></li>
+                        </ul>
+                        <p class="mb-7 font-size-4 text-gray truncate-description">{{ file.description|truncatewords:20 }}</p>
+                        <div class="card-btn-group">
+                          <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:jobdetails' slug=file.slug %}">دانلود فایل</a>
+                        </div>
                       </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">شرکت گوگل</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#"> طراح محصول </a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
+                      <!-- End Feature One -->
                     </div>
-                    <!-- End Feature One -->
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-2.png' %}" alt=""></a>
-                      </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">ایراندبی</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">طراح رابط و تجربه کاربری</a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
-                    </div>
-                    <!-- End Feature One -->
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-3.png' %}" alt=""></a>
-                      </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">شاپیفای</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">آی او اس دولوپر</a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
-                    </div>
-                    <!-- End Feature One -->
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-4.png' %}" alt=""></a>
-                      </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">اوبر</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">طراح هنری </a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
-                    </div>
-                    <!-- End Feature One -->
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-5.png' %}" alt=""></a>
-                      </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">فیسبوک</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">مدیر مارکتینگ </a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
-                    </div>
-                    <!-- End Feature One -->
-                  </div>
-                  <div class="col-12 col-lg-6">
-                    <!-- Start Feature One -->
-                    <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                      <div class="d-block mb-7">
-                        <a href="#"><img src="{% static 'image/l1/png/feature-brand-6.png' %}" alt=""></a>
-                      </div>
-                      <a href="#" class="font-size-3 d-block mb-0 text-gray">اکولوس</a>
-                      <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="#">مهندس نرم افزار</a></h2>
-                      <ul class="list-unstyled mb-1 card-tag-list">
-                        <li><a href="#" class="bg-regent-opacity-15 text-denim font-size-3 rounded-3">
-                            <i class="icon icon-pin-3 mr-2 font-weight-bold"></i> برلین
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
-                            <i class="fa fa-briefcase mr-2 font-weight-bold"></i> تمام وقت
-                          </a></li>
-                        <li><a href="#" class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
-                            <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> 80-90میلیون
-                          </a></li>
-                      </ul>
-                      <p class="mb-7 font-size-4 text-gray">ما به دنبال مشاوران ثبت نام هستیم که به دنبال گرفتن 30-35 قرار ملاقات در هفته هستند. همه لیدها از قبل برنامه ریزی شده اند.</p>
-                      <div class="card-btn-group">
-                        <a class="btn btn-green text-uppercase btn-medium rounded-3" href="#">ارسال رزومه</a>
-                        <a class="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3" href="#"><i
-                class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>ذخیره</a>
-                      </div>
-                    </div>
-                    <!-- End Feature One -->
-                  </div>
+                  {% endfor %}
                 </div>
               </div>
               <div class="text-center pt-5 pt-lg-13">
-                <a class="text-green font-weight-bold text-uppercase font-size-3 d-flex align-items-center justify-content-center" href="#">بارگذاری بیشتر<i class="fas fa-sort-down ml-3 mt-n2 font-size-4"></i>
-                </a>
+                <!-- بارگذاری بیشتر حذف شد -->
               </div>
             </div>
             <!-- form end -->

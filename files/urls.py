@@ -5,5 +5,5 @@ app_name = 'files'
 
 urlpatterns = [
     path('', FileListView.as_view(), name='file-list'),
-    path('<int:pk>/', FileDetailView.as_view(), name='file-detail'),
+    path('<slug:slug>/', FileDetailView.as_view(), name='file-detail'),
 ]

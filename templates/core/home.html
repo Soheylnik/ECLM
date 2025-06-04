@@ -45,22 +45,20 @@
             </div>
             <div class="col-lg-7 col-md-6">
               <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                {% if error %}
-							<div class="alert alert-danger">
-								{{ error }}
-							</div>
-						{% endif %}
-            {% csrf_token %}
-                <form action="https://uxtheme.net/">
+                {% if request.GET.login_error %}
+                  <div class="alert alert-danger">شماره تلفن یا رمز عبور اشتباه است.</div>
+                {% endif %}
+                <form method="post" action="{% url 'accounts:login' %}">
+                  {% csrf_token %}
                   <div class="form-group">
-                    <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> شماره تلفن</label>
-                    <input type="text" class="form-control" placeholder="example@gmail.com" id="phone">
+                    <label for="login-phone" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> شماره تلفن</label>
+                    <input type="text" class="form-control" name="phone" id="login-phone" placeholder="شماره تلفن">
                   </div>
                   <div class="form-group">
-                    <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <label for="login-password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
+                      <input type="password" class="form-control" name="password" id="login-password" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="login-password"></a>
                     </div>
                   </div>
                   <div class="form-group d-flex flex-wrap justify-content-between">
@@ -74,7 +72,7 @@
                   <div class="form-group mb-8">
                     <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
                   </div>
-                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary" data-toggle="modal" data-target="#signup" data-dismiss="modal">یک حساب کاربری رایگان ایجاد کنید</a></p>
                 </form>
               </div>
             </div>
@@ -119,39 +117,46 @@
             </div>
             <div class="col-lg-7 col-md-6">
               <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
-                
-                
-                <form action="https://uxtheme.net/">
+                {% if request.GET.signup_error %}
+                  <div class="alert alert-danger">
+                    {% if request.GET.signup_error == 'empty' %}لطفاً تمام فیلدها را پر کنید.{% endif %}
+                    {% if request.GET.signup_error == 'notmatch' %}رمز عبور و تکرار آن یکسان نیستند.{% endif %}
+                    {% if request.GET.signup_error == 'exists' %}این شماره تلفن قبلاً ثبت شده است.{% endif %}
+                    {% if request.GET.signup_error == 'fail' %}خطا در ثبت‌نام. لطفاً دوباره تلاش کنید.{% endif %}
+                  </div>
+                {% endif %}
+                <form method="post" action="{% url 'accounts:signup' %}">
+                  {% csrf_token %}
                   <div class="form-group">
-                    <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                    <label for="signup-firstname" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> نام </label>
+                    <input type="text" class="form-control" name="first_name" id="signup-firstname" placeholder="نام">
                   </div>
                   <div class="form-group">
-                    <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                    <label for="signup-lastname" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> نام خانوادگی </label>
+                    <input type="text" class="form-control" name="last_name" id="signup-lastname" placeholder="نام خانوادگی">
+                  </div>
+                  <div class="form-group">
+                    <label for="signup-phone" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> شماره تلفن </label>
+                    <input type="text" class="form-control" name="phone" id="signup-phone" placeholder="شماره تلفن">
+                  </div>
+                  <div class="form-group">
+                    <label for="signup-password1" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
+                      <input type="password" class="form-control" name="password1" id="signup-password1" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="signup-password1"></a>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                    <label for="signup-password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
                     <div class="position-relative">
-                      <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
-                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
+                      <input type="password" class="form-control" name="password2" id="signup-password2" placeholder="رمزعبور را وارد کنید">
+                      <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="signup-password2"></a>
                     </div>
-                  </div>
-                  <div class="form-group d-flex flex-wrap justify-content-between mb-1">
-                    <label for="terms-check2" class="gr-check-input d-flex  mr-3">
-                      <input class="d-none" type="checkbox" id="terms-check2">
-                      <span class="checkbox mr-5"></span>
-                      <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
-                    </label>
-                    <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
                   </div>
                   <div class="form-group mb-8">
                     <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
                   </div>
-                  <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                  <p class="font-size-4 text-center heading-default-color"> اکانت دارید؟  <a href="#" class="text-primary" data-toggle="modal" data-target="#login" data-dismiss="modal">وارد شوید</a></p>
                 </form>
               </div>
             </div>

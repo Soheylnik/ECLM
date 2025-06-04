@@ -6,10 +6,8 @@ from django.contrib import messages
 CustomUser = get_user_model()
 
 class SignUpView(View):
-    template_name = 'accounts/signup.html'
-
     def get(self, request):
-        return render(request, self.template_name)
+        return redirect('core:home')
 
     def post(self, request):
         first_name = request.POST.get("first_name")
@@ -20,41 +18,31 @@ class SignUpView(View):
 
         # اعتبارسنجی اولیه
         if not all([first_name, last_name, phone, password1, password2]):
-            return render(request, self.template_name, {
-                'error': 'لطفاً تمام فیلدها را پر کنید!'
-            })
+            return redirect('/?signup_error=empty')
 
         if password1 != password2:
-            return render(request, self.template_name, {
-                'error': 'رمز عبور و تکرار آن یکسان نیستند!'
-            })
+            return redirect('/?signup_error=notmatch')
 
         if CustomUser.objects.filter(phone=phone).exists():
-            return render(request, self.template_name, {
-                'error': 'این شماره تلفن قبلاً ثبت شده است!'
-            })
+            return redirect('/?signup_error=exists')
 
         try:
             CustomUser.objects.create_user(
                 first_name=first_name,
                 last_name=last_name,
                 phone=phone,
-                password=password1  # از create_user استفاده کن تا رمز به درستی هش بشه
+                password=password1
             )
             messages.success(request, 'ثبت‌نام با موفقیت انجام شد.')
-            return redirect('accounts:login')  # یا صفحه دلخواه
+            return redirect('core:home')
         except Exception as e:
-            return render(request, self.template_name, {
-                'error': f'خطا در ثبت‌نام: {str(e)}'
-            })
+            return redirect('/?signup_error=fail')
 
 
 
 class LoginView(View):
-    template_name = 'accounts/login.html'
-
     def get(self, request):
-        return render(request, self.template_name)
+        return redirect('core:home')
 
     def post(self, request):
         phone = request.POST.get("phone")
@@ -65,11 +53,9 @@ class LoginView(View):
         if user is not None:
             login(request, user)
             messages.success(request, "ورود با موفقیت انجام شد.")
-            return redirect('home')  # تغییر بده به صفحه مناسب
+            return redirect('core:home')
         else:
-            return render(request, self.template_name, {
-                'error': 'شماره تلفن یا رمز اشتباه است.'
-            })
+            return redirect('/?login_error=1')
 
 
 class LogoutView(View):

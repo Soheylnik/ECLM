@@ -4,7 +4,7 @@
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="index-2.html">
+            <a href="{% url 'core:home' %}">
               <!-- light version logo (logo must be black)-->
               <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
               <!-- Dark version logo (logo must be White)-->
@@ -15,155 +15,29 @@
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="{% url 'core:home' %}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
                   
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
+                 <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">فایل ها<i class="icon icon-small-down"></i></a>
                   <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
                     <li class="drop-menu-item dropdown">
                       <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       صفحات شغلی
+                       همه فایل ها
                         <i class="icon icon-small-down"></i>
                       </a>
                       <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
                         <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                          شغل گرید
+                          <a href="{% url 'core:search' %}">
+                          خرید فایل
                           </a>
                         </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            شغل لیست
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="jobdetails.html">
-                        جزییات شغل
-                          </a>
-                        </li>
+                        
                       </ul>
                     </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        دشبرد
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
-                        <li class="drop-menu-item">
-                          <a href="dashboard-main.html">
-                            صفحه اصلی دشبرد
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-settings.html">
-                            تنظیمات
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-applicants.html">
-                            متقاضیان
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-jobs.html">
-                          شغل‌های پست شده
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات کارجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile-main.html">
-                            پروفایل کارجو
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile.html">
-                            پروفایل کارجو 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات جستجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                            جستجو گرید
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            جستجو لیست 01
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-2.html">
-                            جستجو لیست 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="company-profile.html">
-                       پروفایل شرکت
-                      </a>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      اکانت
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#login">
-                           ورود
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#signup">
-                          ثبت نام
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات پایه
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
-                        <li class="drop-menu-item">
-                          <a href="faq.html">
-                            پرسش و پاسخ
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="error-404.html">
-                            404
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="pricing-page.html">
-                          صفحه قیمت گذاری
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="contact.html">ارتباط با ما</a>
-                        </li>
-                      </ul>
-                    </li>
+                    
                   </ul>
-                </li>
+                </li> 
                 <li class="nav-item">
                   <a class="nav-link" href="#">پشتیبانی</a>
                 </li>
@@ -191,9 +65,9 @@
           <i class="fas fa-chevron-down heading-default-color ml-6"></i>
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_settings' %}">تنظیمات</a>
           <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">ویرایش پروفایل</a>
-          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
+          <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'accounts:logout' %}">خروج</a>
         </div>
       </div>
     </div>

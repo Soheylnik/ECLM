@@ -36,7 +36,7 @@
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="index-2.html">
+            <a href="{% url 'core:home' %}">
               <!-- light version logo (logo must be black)-->
               <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
               <!-- Dark version logo (logo must be White)-->
@@ -47,171 +47,10 @@
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
-                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="drop-menu-item">
-                      <a href="home-1.html">
-                       خانه اصلی 01
-                      </a>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="home-2.html">
-                       خانه اصلی 02
-                      </a>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="home-3.html">
-                       خانه اصلی 03
-                      </a>
-                    </li>
-                  </ul>
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="{% url 'core:home' %}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i ></i></a>
+                  
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
-                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       صفحات شغلی
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                          شغل گرید
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            شغل لیست
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="jobdetails.html">
-                        جزییات شغل
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        دشبرد
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
-                        <li class="drop-menu-item">
-                          <a href="dashboard-main.html">
-                            صفحه اصلی دشبرد
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-settings.html">
-                            تنظیمات
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-applicants.html">
-                            متقاضیان
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-jobs.html">
-                          شغل‌های پست شده
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات کارجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile-main.html">
-                            پروفایل کارجو
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile.html">
-                            پروفایل کارجو 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات جستجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                            جستجو گرید
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            جستجو لیست 01
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-2.html">
-                            جستجو لیست 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="company-profile.html">
-                       پروفایل شرکت
-                      </a>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      اکانت
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#login">
-                           ورود
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#signup">
-                          ثبت نام
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات پایه
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
-                        <li class="drop-menu-item">
-                          <a href="faq.html">
-                            پرسش و پاسخ
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="error-404.html">
-                            404
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="pricing-page.html">
-                          صفحه قیمت گذاری
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="contact.html">ارتباط با ما</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link" href="#">پشتیبانی</a>
                 </li>
@@ -310,7 +149,7 @@
                   <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                     
                
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:login' %}">
                       <div class="form-group">
                         <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
                         <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
@@ -380,7 +219,7 @@
                   <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                     
                  
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:signup' %}">
                       <div class="form-group">
                         <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
                         <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
@@ -421,17 +260,15 @@
 
     <div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
       <div class="brand-logo px-11">
-        <a href="https://shade.uxtheme.net/shade-pro">
+        <a href="{% url 'core:home' %}">
           <img src="{% static 'image/logo-main-black.png' %}" alt="">
         </a>
       </div>
-      <div class="my-15 px-11">
-        <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>ارسال شغل جدید</a>
-      </div>
+     
       <ul class="list-unstyled dashboard-layout-sidebar">
         <li class=""><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
-        <li class=""><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>شغل پست شده</a></li>
-        <li class=""><a href="dashboard-posted-applicants.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>درخواست ها<span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
+        <li class=""><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
+       
         <li class="active"><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
       </ul>
     </div>
@@ -440,6 +277,78 @@
     </a>
     <div class="dashboard-main-container mt-24 mt-lg-31" id="dashboard-body">
       <div class="container">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        {% if product_form %}
+          <div class="mb-5">
+            <h4 class="mb-3">افزودن محصول جدید</h4>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="id_title">عنوان فایل</label>
+                    <input type="text" class="form-control" name="title" id="id_title" value="{{ product_form.title.value|default_if_none:'' }}">
+                    {% if product_form.title.errors %}<div class="text-danger">{{ product_form.title.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="id_file">فایل</label>
+                    <input type="file" class="form-control" name="file" id="id_file">
+                    {% if product_form.file.errors %}<div class="text-danger">{{ product_form.file.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="id_file_type">نوع فایل</label>
+                    <select name="file_type" id="id_file_type" class="form-control">
+                      <option value="">انتخاب کنید</option>
+                      {% for value, label in product_form.fields.file_type.choices %}
+                        <option value="{{ value }}" {% if product_form.file_type.value == value %}selected{% endif %}>{{ label }}</option>
+                      {% endfor %}
+                    </select>
+                    {% if product_form.file_type.errors %}<div class="text-danger">{{ product_form.file_type.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="id_project_manager">مدیر پروژه</label>
+                    <input type="text" class="form-control" name="project_manager" id="id_project_manager" value="{{ product_form.project_manager.value|default_if_none:'' }}">
+                    {% if product_form.project_manager.errors %}<div class="text-danger">{{ product_form.project_manager.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="id_description">توضیحات</label>
+                <textarea class="form-control" name="description" id="id_description">{{ product_form.description.value|default_if_none:'' }}</textarea>
+                {% if product_form.description.errors %}<div class="text-danger">{{ product_form.description.errors.0 }}</div>{% endif %}
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="id_is_free">رایگان؟</label>
+                    <input type="checkbox" name="is_free" id="id_is_free" {% if product_form.is_free.value %}checked{% endif %}>
+                    {% if product_form.is_free.errors %}<div class="text-danger">{{ product_form.is_free.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="id_price">قیمت (ریال)</label>
+                    <input type="number" class="form-control" name="price" id="id_price" value="{{ product_form.price.value|default_if_none:'' }}">
+                    {% if product_form.price.errors %}<div class="text-danger">{{ product_form.price.errors.0 }}</div>{% endif %}
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">افزودن محصول</button>
+            </form>
+          </div>
+        {% endif %}
         <div class="mb-15 mb-lg-23">
           <div class="row">
             <div class="col-xxxl-9 px-lg-13 px-6">

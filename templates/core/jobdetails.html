@@ -1,6 +1,7 @@
 {% extends "parent/base.html" %}
 
 {% load static %}
+{% load humanize %}
 
 {% block content %}
   <div class="site-wrapper overflow-hidden ">
@@ -159,13 +160,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <!-- back Button -->
-          <div class="col-xl-10 col-lg-11 mt-4 ml-xxl-32 ml-xl-15 dark-mode-texts">
-            <div class="mb-9">
-              <a class="d-flex align-items-center ml-4" href="dashboard-main.html"> <i
-              class="icon icon-small-right bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8">
-            </i><span class="text-uppercase font-size-3 font-weight-bold text-gray">برگشت به صفحه مشاغل</span></a>
-            </div>
-          </div>
+         
           <!-- back Button End -->
           <div class="col-xl-9 col-lg-11 mb-8 px-xxl-15 px-xl-0">
             <div class="bg-white rounded-4 border border-mercury shadow-9">
@@ -182,8 +177,8 @@
                       <!-- media logo end -->
                       <!-- media texts start -->
                       <div>
-                        <h3 class="font-size-6 mb-0"> طراح محصول </h3>
-                        <span class="font-size-3 text-gray line-height-2">ایراندبی</span>
+                        <h3 class="font-size-6 mb-0"> {{ file.title }} </h3>
+                        
                       </div>
                       <!-- media texts end -->
                     </div>
@@ -192,7 +187,7 @@
                   <div class="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
                     <!-- media date start -->
                     <div class="media justify-content-md-end">
-                      <p class="font-size-4 text-gray mb-0">19 مهر 1399</p>
+                      <p class="font-size-4 text-gray mb-0">{{ file.uploaded_at|date:'Y/m/d' }}</p>
                     </div>
                     <!-- media date end -->
                   </div>
@@ -201,11 +196,8 @@
                   <div class="col-12">
                     <!-- card-btn-group start -->
                     <div class="card-btn-group">
-                      <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">ارسال درخواست شغل</a>
-                      <a class="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5" href="#">
-                        <i class="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i> ذخیره شغل</a>
+                      <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:download_file' slug=file.slug %}">دانلود فایل</a>
                     </div>
-                    <!-- card-btn-group end -->
                   </div>
                 </div>
               </div>
@@ -217,78 +209,30 @@
                       <div class="image mr-5">
                         <img src="{% static 'image/svg/icon-dolor.svg' %}" alt="">
                       </div>
-                      <p class="font-weight-semibold font-size-5 text-black-2 mb-0">80-90میلیون سالانه </p>
+                      <p class="font-weight-semibold font-size-5 text-black-2 mb-0">{% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}</p>
                     </div>
                   </div>
-                  <div class="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
-                    <div class="media justify-content-md-start">
-                      <div class="image mr-5">
-                        <img src="{% static 'image/svg/icon-briefcase.svg' %}" alt="">
-                      </div>
-                      <p class="font-weight-semibold font-size-5 text-black-2 mb-0">تمام وقت</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4 pl-lg-0">
-                    <div class="media justify-content-md-start">
-                      <div class="image mr-5">
-                        <img src="{% static 'image/svg/icon-location.svg' %}" alt="">
-                      </div>
-                      <p class="font-size-5 text-gray mb-0"> یک آدرس فرضی در <br class="d-md-none d-lg-block d-block">
-                                            این محل قرار دارد</p>
-                    </div>
-                  </div>
+                  
                 </div>
                 <div class="row">
                   <div class="col-md-4 mb-lg-0 mb-10">
                     <div class="">
-                      <span class="font-size-4 d-block mb-4 text-gray">سطح شغل</span>
-                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">مدیر پروژه</h6>
+                      <span class="font-size-4 d-block mb-4 text-gray">مدیر پروژه</span>
+                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">{{ file.project_manager }}</h6>
                     </div>
-                    <div class="tags">
-                      <p class="font-size-4 text-gray mb-0">مهارت ها</p>
-                      <ul class="list-unstyled mr-n3 mb-0">
-                        <li class="d-block font-size-4 text-black-2 mt-2">
-                          <span class="d-inline-block mr-2">•</span>اسلک
-                        </li>
-                        <li class="d-block font-size-4 text-black-2 mt-2">
-                          <span class="d-inline-block mr-2">•</span>انگلیسی
-                        </li>
-                        <li class="d-block font-size-4 text-black-2 mt-2">
-                          <span class="d-inline-block mr-2">•</span>منظم بودن
-                        </li>
-                      </ul>
-                    </div>
+                    
                   </div>
                   <div class="col-md-4 pr-lg-0 pl-lg-10 mb-lg-0 mb-8">
                     <div class="">
-                      <span class="font-size-4 d-block mb-4 text-gray">نوع شرکت</span>
-                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">B2B و B2C</h6>
+                      <span class="font-size-4 d-block mb-4 text-gray">نوع فایل</span>
+                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-9">{{ file.file_type }}</h6>
                     </div>
-                    <div class="tags">
-                      <p class="font-size-4 text-gray mb-3">مهارت های فنی</p>
-                      <ul class="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
-                        <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                         ویرایش
-                        </li>
-                        <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                          وایرفریم کشیدن
-                        </li>
-                        <li class="bg-regent-opacity-15 mr-md-0 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                          ایکس دی
-                        </li>
-                        <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                          پرسونا کاربر
-                        </li>
-                        <li class="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
-                          اسکچ
-                        </li>
-                      </ul>
-                    </div>
+                    
                   </div>
                   <div class="col-md-4 pl-lg-0">
                     <div class="">
-                      <span class="font-size-4 d-block mb-4 text-gray">اندازه شرکت</span>
-                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">11-50 کارمند </h6>
+                      <span class="font-size-4 d-block mb-4 text-gray">اندازه فایل</span>
+                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">{{ file.file_size }} بایت</h6>
                     </div>
                   </div>
                 </div>
@@ -297,33 +241,10 @@
                 <div class="row">
                   <div class="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                     <div class="">
-                      <p class="mb-4 font-size-4 text-gray">توضیحات شغلی</p>
-                      <p class="font-size-4 text-black-2 mb-7">شرکت گوبگو سریعاً ارائه دهنده راه حل های پیام رسانی و بازرگانی برای فروشندگان خودرو است
-                         تغییر آینده چگونگی پیدا کردن ، خرید و سرویس دهی مردم به وسایل نقلیه. </p>
+                      <p class="mb-4 font-size-4 text-gray">توضیحات فایل</p>
+                      <p class="font-size-4 text-black-2 mb-7">{{ file.description }}</p>
                     </div>
-                    <div class="">
-                      <span class="font-size-4 font-weight-semibold text-black-2 mb-7">نقش شما:</span>
-                      <p class="font-size-4 text-black-2 mb-7">ما به دنبال یک فرد پرشور برای طراحی محصولات زیبا و کاربردی برای خود هستیم
-                         مشتریان . ما بسیار سریع حرکت می کنیم و از شما انتظار می رود که به یک تیم توسعه محصول با عملکرد متقابل کمک کنید ،
-                         که شامل مدیران و توسعه دهندگان محصولات است ، تا UX و UI را برای زندگی در اختیار تیم قرار دهد.</p>
-                      <p class="font-size-4 text-black-2 mb-7">ما در مورد کار از راه دور جدی هستیم. از هرجایی می توانید برای آن کار کنید.</p>
-                      <span class="font-size-4 font-weight-semibold text-black-2 mb-7">آنچه انجام می دهید:</span>
-                      <ul class="list-unstyled">
-                        <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-2">
-                          <span class="d-inline-block mr-7">•</span>در کنترل های جدید یا پیشرفت های طراحی در ما سهیم شوید
-                        </li>
-                        <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                          <span class="d-inline-block mr-7">•</span>مالکیت موفقیت تحویل ویژگی ها باشید
-                        </li>
-                        <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                          <span class="d-inline-block mr-7">•</span>به تعیین و دستیابی به اهداف سه ماهه کمک کنید
-                        </li>
-                        <li class="d-block font-size-4 text-black-2 d-flex flex-row mt-1">
-                          <span class="d-inline-block mr-7">•</span>با یک تن پیشرفت و ویژگی های محصول روبرو شوید
-                        </li>
-                      </ul>
-                      <a class="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6" href="#">ارسال درخواست شغل</a>
-                    </div>
+              
                   </div>
                 </div>
               </div>

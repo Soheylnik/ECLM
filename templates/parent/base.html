@@ -1,16 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 
- 
-<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/home-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:03:39 GMT -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /> 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> جاب کمپ - قالب کاریابی آنلاین </title>
+  <title>{% block title %}ECLM - سیستم مدیریت مشاغل{% endblock %}</title>
   <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -25,25 +22,22 @@
   <link rel="stylesheet" href="{% static 'plugins/ui-range-slider/jquery-ui.css' %}">
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  <!-- Custom stylesheet -->
+  {% block extra_css %}{% endblock %}
 </head>
 
-
 <body>
+  <!-- Main Header -->
+  {% include "partials/header.html" %}
+  <!-- End Main Header -->
 
-      <!-- Main Header -->
-      {% include "partials/header.html" %}
-      <!-- End Main Header -->
+  <!-- Main Content -->
+  {% block content %}{% endblock %}
+  <!-- End Main Content -->
 
-      <!--End.header-->
-      {% block content %}
+  <!-- Footer -->
+  {% include "partials/footer.html" %}
+  <!-- End Footer -->
 
-      {% endblock %}
-      <!--End.main-->
-
-      <!-- Footer -->
-      {% include "partials/footer.html" %}
-   
   <!-- Vendor Scripts -->
   <script src="{% static 'js/vendor.min.js' %}"></script>
   <!-- Plugin's Scripts -->
@@ -55,10 +49,7 @@
   <script src="{% static 'plugins/counter-up/jquery.waypoints.min.js' %}"></script>
   <script src="{% static 'plugins/ui-range-slider/jquery-ui.js' %}"></script>
   <!-- Activation Script -->
-  <!-- <script src="{% static 'js/drag-n-drop.js' %}"></script> -->
   <script src="{% static 'js/custom.js' %}"></script>
+  {% block extra_js %}{% endblock %}
 </body>
-
-
-<!-- Mirrored from atiyehahmadi.ir/jobcamp-demos/jobcamp/home-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 May 2025 07:04:00 GMT -->
 </html>

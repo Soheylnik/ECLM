@@ -35,7 +35,7 @@
         <nav class="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="index-2.html">
+            <a href="{% url 'core:home' %}">
               <!-- light version logo (logo must be black)-->
               <img src="{% static 'image/logo-main-black.png' %}" alt="" class="light-version-logo default-logo">
               <!-- Dark version logo (logo must be White)-->
@@ -46,170 +46,8 @@
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i class="icon icon-small-down"></i></a>
-                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="drop-menu-item">
-                      <a href="home-1.html">
-                       خانه اصلی 01
-                      </a>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="home-2.html">
-                       خانه اصلی 02
-                      </a>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="home-3.html">
-                       خانه اصلی 03
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown2" href="#features" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحه‌ها<i class="icon icon-small-down"></i></a>
-                  <ul class="gr-menu-dropdown dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       صفحات شغلی
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                          شغل گرید
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            شغل لیست
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="jobdetails.html">
-                        جزییات شغل
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown21" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        دشبرد
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown21">
-                        <li class="drop-menu-item">
-                          <a href="dashboard-main.html">
-                            صفحه اصلی دشبرد
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-settings.html">
-                            تنظیمات
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-applicants.html">
-                            متقاضیان
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="dashboard-posted-jobs.html">
-                          شغل‌های پست شده
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown25g" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات کارجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown25g">
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile-main.html">
-                            پروفایل کارجو
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="candidate-profile.html">
-                            پروفایل کارجو 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات جستجو
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="search-grid.html">
-                            جستجو گرید
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-1.html">
-                            جستجو لیست 01
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="search-list-2.html">
-                            جستجو لیست 02
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item">
-                      <a href="company-profile.html">
-                       پروفایل شرکت
-                      </a>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown242" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      اکانت
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown242">
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#login">
-                           ورود
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="javacript:" data-toggle="modal" data-target="#signup">
-                          ثبت نام
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="drop-menu-item dropdown">
-                      <a class="dropdown-toggle gr-toggle-arrow" id="navbarDropdown26" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        صفحات پایه
-                        <i class="icon icon-small-down"></i>
-                      </a>
-                      <ul class="gr-menu-dropdown dropdown-menu dropdown-left" aria-labelledby="navbarDropdown26">
-                        <li class="drop-menu-item">
-                          <a href="faq.html">
-                            پرسش و پاسخ
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="error-404.html">
-                            404
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="pricing-page.html">
-                          صفحه قیمت گذاری
-                          </a>
-                        </li>
-                        <li class="drop-menu-item">
-                          <a href="contact.html">ارتباط با ما</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="{% url 'core:home' %}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i ></i></a>
+                  
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">پشتیبانی</a>
@@ -309,7 +147,7 @@
                   <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                    
                  
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:login' %}">
                       <div class="form-group">
                         <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
                         <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
@@ -381,7 +219,7 @@
                     <div class="or-devider">
                       
                     </div>
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:signup' %}">
                       <div class="form-group">
                         <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
                         <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
@@ -422,18 +260,16 @@
 
     <div class="dashboard-sidebar-wrapper pt-11" id="sidebar">
       <div class="brand-logo px-11">
-        <a href="https://shade.uxtheme.net/shade-pro">
+        <a href="{% url 'core:home' %}">
           <img src="{% static 'image/logo-main-black.png' %}" alt="">
         </a>
       </div>
-      <div class="my-15 px-11">
-        <a href="#" class="btn btn-primary btn-xl w-100 text-uppercase"><span class="mr-5 d-inline-block">+</span>ارسال شغل جدید</a>
-      </div>
+     
       <ul class="list-unstyled dashboard-layout-sidebar">
-        <li class=""><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
-        <li class="active"><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>شغل پست شده</a></li>
-        <li class=""><a href="dashboard-posted-applicants.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-user mr-7"></i>درخواست ها<span class="ml-auto px-1 h-1 bg-dodger text-white font-size-3 rounded-5 max-height-px-18 flex-all-center">14</span></a></li>
-        <li class=""><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+       
+        <li class="active"><a href="{% url 'core:dashboard_posted_jobs' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
+       
+        <li class=""><a href="{% url 'core:dashboard_settings' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
       </ul>
     </div>
     <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
@@ -444,138 +280,36 @@
         <div class="mb-18">
           <div class="row mb-11 align-items-center">
             <div class="col-lg-6 mb-lg-0 mb-4">
-              <h3 class="font-size-6 mb-0">مشاغل پست شده (4)</h3>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
-                <p class="font-size-4 mb-0 mr-6 py-2">فیلتر بر اساس:</p>
-                <div class="h-px-48">
-                  <select name="country" id="country" class="nice-select pl-7 h-100 arrow-3 arrow-3-black min-width-px-273 font-weight-semibold text-black-2">
-                    <option value="" data-display=" طراح محصول ">تمام وقت</option>
-                    <option value="">پاره وقت</option>
-                  </select>
-                </div>
-              </div>
+              <h3 class="font-size-6 mb-0">فایل‌های دانلود شده شما</h3>
             </div>
           </div>
           <div class="bg-white shadow-8 pt-7 rounded pb-9 px-11">
-            <div class="table-responsive ">
+            {% if downloaded_files %}
+            <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col" class="pl-0 border-0 font-size-4 font-weight-normal">نام</th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">عنوان شغلی</th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">شهر</th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">تاریخ ایجاد</th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal">درخواست ها</th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
-                    <th scope="col" class="pl-4 border-0 font-size-4 font-weight-normal"></th>
+                    <th scope="col">عنوان فایل</th>
+                    <th scope="col">نوع فایل</th>
+                    <th scope="col">تاریخ آپلود</th>
+                    <th scope="col">دانلود</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="border border-color-2">
-                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                      <div class="">
-                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">سنیور مدیر محصول</a>
-                      </div>
-                    </th>
-                    <td class="table-y-middle py-7 min-width-px-135">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-125">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">نیویورک</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-155">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">12 آذر, 1399</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-205">
-                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">47</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-80">
-                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-100">
-                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
-                    </td>
+                  {% for file in downloaded_files %}
+                  <tr>
+                    <td>{{ file.title }}</td>
+                    <td>{{ file.get_file_type_display }}</td>
+                    <td>{{ file.uploaded_at|date:'Y/m/d' }}</td>
+                    <td><a href="{% url 'core:download_file' slug=file.slug %}" class="btn btn-sm btn-primary">دانلود مجدد</a></td>
                   </tr>
-                  <tr class="border border-color-2">
-                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                      <div class="">
-                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">طراح رابط کاربری</a>
-                      </div>
-                    </th>
-                    <td class="table-y-middle py-7 min-width-px-135">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-125">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">ریموت</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-155">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">24 آذر, 1399</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-205">
-                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">145</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-80">
-                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-100">
-                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
-                    </td>
-                  </tr>
-                  <tr class="border border-color-2">
-                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                      <div class="">
-                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">سرپرست مارکتینگ</a>
-                      </div>
-                    </th>
-                    <td class="table-y-middle py-7 min-width-px-135">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">تمام وقت</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-125">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">لندن</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-155">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">15 آذر, 1399</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-205">
-                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">62</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-80">
-                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-100">
-                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
-                    </td>
-                  </tr>
-                  <tr class="border border-color-2">
-                    <th scope="row" class="pl-6 border-0 py-7 min-width-px-235">
-                      <div class="">
-                        <a href="jobdetails.html" class="font-size-4 mb-0 font-weight-semibold text-black-2">فول استک دولوپر</a>
-                      </div>
-                    </th>
-                    <td class="table-y-middle py-7 min-width-px-135">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">پاره وقت</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-125">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">کالیفرنیا</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-155">
-                      <h3 class="font-size-4 font-weight-normal text-black-2 mb-0">29 دی, 1399</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-205">
-                      <h3 class="font-size-4 font-weight-bold text-black-2 mb-0">184</h3>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-80">
-                      <a href="#" class="font-size-3 font-weight-bold text-green text-uppercase">ویرایش</a>
-                    </td>
-                    <td class="table-y-middle py-7 min-width-px-100">
-                      <a href="#" class="font-size-3 font-weight-bold text-red-2 text-uppercase">حذف</a>
-                    </td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
+            {% else %}
+            <div class="alert alert-info mt-4">شما هنوز هیچ فایلی دانلود نکرده‌اید.</div>
+            {% endif %}
           </div>
         </div>
       </div>
