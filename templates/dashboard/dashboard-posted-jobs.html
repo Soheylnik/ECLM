@@ -50,7 +50,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">پشتیبانی</a>
+                  <a class="nav-link" href="{% url 'core:contact' %}">پشتیبانی</a>
                 </li>
               </ul>
             </div>
@@ -72,9 +72,9 @@
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
           {% if user.is_staff %}
-          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_settings' %}">تنظیمات</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard-settings' %}">تنظیمات</a>
           {% endif %}
-          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_posted_jobs' %}">فایل های خریداری شده</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard-posted-jobs' %}">فایل های خریداری شده</a>
           <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
         </div>
       </div>
@@ -264,9 +264,10 @@
      
       <ul class="list-unstyled dashboard-layout-sidebar">
        
-        <li class="active"><a href="{% url 'core:dashboard_posted_jobs' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
-       
-        <li class=""><a href="{% url 'core:dashboard_settings' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+        <li class="active"><a href="{% url 'core:dashboard-posted-jobs' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
+        {% if user.is_staff %}
+        <li class=""><a href="{% url 'core:dashboard-settings' %}" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+        {% endif %}
       </ul>
     </div>
     <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">

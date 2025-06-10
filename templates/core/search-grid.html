@@ -244,7 +244,7 @@
                       <!-- Start Feature One -->
                       <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
                         <div class="d-block mb-7">
-                          <a href="{% url 'core:jobdetails' slug=file.slug %}">
+                          <a href="{% url 'core:job-details' slug=file.slug %}">
                             {% if file.file_type == 'pdf' %}
                               <i class="fas fa-file-pdf fa-3x text-danger"></i>
                             {% elif file.file_type == 'word' %}
@@ -257,7 +257,7 @@
                           </a>
                         </div>
                         <h2 class="mt-n4">
-                          <a class="font-size-7 text-black-2 font-weight-bold mb-4" href="{% url 'core:jobdetails' slug=file.slug %}">
+                          <a class="font-size-7 text-black-2 font-weight-bold mb-4" href="{% url 'core:job-details' slug=file.slug %}">
                             {{ file.title }}
                           </a>
                         </h2>
@@ -286,7 +286,7 @@
                         </ul>
                         <p class="mb-7 font-size-4 text-gray truncate-description">{{ file.description|truncatewords:20 }}</p>
                         <div class="card-btn-group">
-                          <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:jobdetails' slug=file.slug %}">دانلود فایل</a>
+                          <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:job-details' slug=file.slug %}">دانلود فایل</a>
                         </div>
                       </div>
                       <!-- End Feature One -->

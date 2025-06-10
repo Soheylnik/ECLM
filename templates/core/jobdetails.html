@@ -47,15 +47,16 @@
                   <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                     
                     
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:login' %}">
+                      {% csrf_token %}
                       <div class="form-group">
-                        <label for="email" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
-                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email">
+                        <label for="phone" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">شماره تماس</label>
+                        <input type="tel" class="form-control" placeholder="مثال: 09123456789" id="phone" name="phone">
                       </div>
                       <div class="form-group">
-                        <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <label for="password" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">رمز عبور</label>
                         <div class="position-relative">
-                          <input type="password" class="form-control" id="password" placeholder="رمزعبور را وارد کنید">
+                          <input type="password" class="form-control" id="password" placeholder="رمز عبور را وارد کنید" name="password">
                           <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password"></a>
                         </div>
                       </div>
@@ -63,14 +64,14 @@
                         <label for="terms-check" class="gr-check-input d-flex  mr-3">
                           <input class="d-none" type="checkbox" id="terms-check">
                           <span class="checkbox mr-5"></span>
-                          <span class="font-size-3 mb-0 line-height-reset mb-1 d-block">به خاطرسپاری رمزعبور</span>
+                          <span class="font-size-3 mb-0 text-default-color">مرا به خاطر بسپار</span>
                         </label>
-                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
+                        <a href="#" class="font-size-3 text-dodger line-height-reset">رمز عبور را فراموش کرده‌اید؟</a>
                       </div>
                       <div class="form-group mb-8">
-                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود </button>
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ورود</button>
                       </div>
-                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                      <p class="font-size-4 text-center heading-default-color">اکانت ندارید؟ <a href="javascript:;" class="text-primary" data-toggle="modal" data-target="#signup" data-dismiss="modal">یک حساب کاربری رایگان ایجاد کنید</a></p>
                     </form>
                   </div>
                 </div>
@@ -117,37 +118,45 @@
                   <div class="bg-white-2 h-100 px-11 pt-11 pb-7">
                     
                     
-                    <form action="https://uxtheme.net/">
+                    <form method="post" action="{% url 'accounts:signup' %}">
+                      {% csrf_token %}
                       <div class="form-group">
-                        <label for="email2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> ایمیل </label>
-                        <input type="email" class="form-control" placeholder="example@gmail.com" id="email2">
+                        <label for="first_name" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">نام</label>
+                        <input type="text" class="form-control" placeholder="نام خود را وارد کنید" id="first_name" name="first_name">
                       </div>
                       <div class="form-group">
-                        <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> رمزعبور </label>
+                        <label for="last_name" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">نام خانوادگی</label>
+                        <input type="text" class="form-control" placeholder="نام خانوادگی خود را وارد کنید" id="last_name" name="last_name">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">شماره تماس</label>
+                        <input type="tel" class="form-control" placeholder="مثال: 09123456789" id="phone2" name="phone">
+                      </div>
+                      <div class="form-group">
+                        <label for="password2" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">رمز عبور</label>
                         <div class="position-relative">
-                          <input type="password" class="form-control" id="password2" placeholder="رمزعبور را وارد کنید">
+                          <input type="password" class="form-control" id="password2" placeholder="رمز عبور را وارد کنید" name="password1">
                           <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password2"></a>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset"> تایید رمزعبور </label>
+                        <label for="password23" class="font-size-4 text-black-2 font-weight-semibold line-height-reset">تایید رمز عبور</label>
                         <div class="position-relative">
-                          <input type="password" class="form-control" id="password23" placeholder="رمزعبور را وارد کنید">
+                          <input type="password" class="form-control" id="password23" placeholder="رمز عبور را وارد کنید" name="password2">
                           <a href="#" class="show-password pos-abs-cr fas mr-6 text-black-2" data-show-pass="password23"></a>
                         </div>
                       </div>
-                      <div class="form-group d-flex flex-wrap justify-content-between mb-1">
+                      <div class="form-group d-flex flex-wrap justify-content-between">
                         <label for="terms-check2" class="gr-check-input d-flex  mr-3">
                           <input class="d-none" type="checkbox" id="terms-check2">
                           <span class="checkbox mr-5"></span>
-                          <span class="font-size-3 mb-0 line-height-reset d-block"> موافقت با  <a href="#" class="text-primary"> قوانین و مقررات  </a></span>
+                          <span class="font-size-3 mb-0 text-default-color">با <a href="#" class="text-primary">قوانین و مقررات</a> موافقم</span>
                         </label>
-                        <a href="#" class="font-size-3 text-dodger line-height-reset"> فراموشی رمزعبور  </a>
                       </div>
                       <div class="form-group mb-8">
-                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام </button>
+                        <button class="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">ثبت نام</button>
                       </div>
-                      <p class="font-size-4 text-center heading-default-color"> اکانت ندارید؟  <a href="#" class="text-primary">یک حساب کاربری رایگان ایجاد کنید</a></p>
+                      <p class="font-size-4 text-center heading-default-color">قبلاً ثبت نام کرده‌اید؟ <a href="javascript:;" class="text-primary" data-toggle="modal" data-target="#login" data-dismiss="modal">وارد شوید</a></p>
                     </form>
                   </div>
                 </div>
@@ -196,7 +205,19 @@
                   <div class="col-12">
                     <!-- card-btn-group start -->
                     <div class="card-btn-group">
-                      <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:download_file' slug=file.slug %}">دانلود فایل</a>
+                      {% if file.is_free %}
+                        <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:download_file' slug=file.slug %}">دانلود فایل</a>
+                      {% else %}
+                        {% if user.is_authenticated %}
+                          {% if has_purchased %}
+                            <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:download_file' slug=file.slug %}">دانلود فایل</a>
+                          {% else %}
+                            <a class="btn btn-primary text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:add_to_cart' slug=file.slug %}">افزودن به سبد خرید</a>
+                          {% endif %}
+                        {% else %}
+                          <button class="btn btn-primary text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" data-toggle="modal" data-target="#login">ورود و خرید</button>
+                        {% endif %}
+                      {% endif %}
                     </div>
                   </div>
                 </div>
@@ -325,9 +346,27 @@
             </div>
 
             <div class="card-btn-group">
-              <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:download_file' slug=file.slug %}">
-                دانلود فایل
-              </a>
+              {% if file.is_free %}
+                <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:download_file' slug=file.slug %}">
+                  دانلود فایل
+                </a>
+              {% else %}
+                {% if user.is_authenticated %}
+                  {% if has_purchased %}
+                    <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:download_file' slug=file.slug %}">
+                      دانلود فایل
+                    </a>
+                  {% else %}
+                    <a class="btn btn-primary text-uppercase btn-medium rounded-3" href="{% url 'core:add_to_cart' slug=file.slug %}">
+                      افزودن به سبد خرید
+                    </a>
+                  {% endif %}
+                {% else %}
+                  <button class="btn btn-primary text-uppercase btn-medium rounded-3" data-toggle="modal" data-target="#login">
+                    ورود و خرید
+                  </button>
+                {% endif %}
+              {% endif %}
             </div>
           </div>
         </div>

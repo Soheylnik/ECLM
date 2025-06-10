@@ -50,7 +50,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">پشتیبانی</a>
+                  <a class="nav-link" href="{% url 'core:contact' %}">پشتیبانی</a>
                 </li>
               </ul>
             </div>
@@ -72,7 +72,7 @@
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
-          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_posted_jobs' %}">فایل های خریداری شده</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard-posted-jobs' %}">فایل های خریداری شده</a>
           <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
         </div>
       </div>

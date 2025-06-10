@@ -1,7 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.shortcuts import render, redirect, get_object_or_404
 from files.models import UploadedFile, Download, Category
-from django.views.generic.detail import DetailView
 from django.core.paginator import Paginator
 from django.utils.text import slugify
 from django.http import FileResponse, Http404, HttpResponseForbidden
@@ -9,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from files.forms import UploadedFileForm
 from django.contrib import messages
+from .models import ContactMessage
 
 class HomeView(TemplateView):
     template_name = 'core/home.html'
@@ -187,3 +187,60 @@ class FileDownloadView(TemplateView):
         Download.objects.get_or_create(user=request.user, file=file_obj)
         response = FileResponse(file_obj.file.open('rb'), as_attachment=True, filename=file_obj.file.name.split('/')[-1])
         return response
+
+class FAQView(TemplateView):
+    template_name = 'core/faq.html'
+
+@login_required
+def contact_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        if name and email and subject and message:
+            ContactMessage.objects.create(
+                user=request.user,
+                name=name,
+                email=email,
+                subject=subject,
+                message=message
+            )
+            messages.success(request, 'پیام شما با موفقیت ارسال شد.')
+            return redirect('core:contact')
+        else:
+            messages.error(request, 'لطفاً تمام فیلدها را پر کنید.')
+    
+    return render(request, 'core/contact.html')
+
+class AboutView(TemplateView):
+    template_name = 'core/about.html'
+
+def download_file(request, slug):
+    file = get_object_or_404(UploadedFile, slug=slug)
+    
+    # چک کردن وجود فایل فیزیکی
+    if not file.file:
+        messages.error(request, 'فایل مورد نظر در سرور موجود نیست.')
+        return redirect('core:job-details', slug=slug)
+        
+    try:
+        if file.is_free:
+            response = FileResponse(file.file.open('rb'), as_attachment=True, filename=file.file.name.split('/')[-1])
+            return response
+        elif request.user.is_authenticated:
+            if request.user.is_staff or file.purchased_by.filter(id=request.user.id).exists():
+                # ثبت دانلود فقط اگر قبلاً ثبت نشده باشد
+                Download.objects.get_or_create(user=request.user, file=file)
+                response = FileResponse(file.file.open('rb'), as_attachment=True, filename=file.file.name.split('/')[-1])
+                return response
+            else:
+                messages.error(request, 'شما باید این فایل را خریداری کنید.')
+                return redirect('core:job-details', slug=slug)
+        else:
+            messages.error(request, 'برای دانلود این فایل باید وارد حساب کاربری خود شوید.')
+            return redirect('core:job-details', slug=slug)
+    except Exception as e:
+        messages.error(request, 'خطا در دانلود فایل. لطفاً با پشتیبانی تماس بگیرید.')
+        return redirect('core:job-details', slug=slug)

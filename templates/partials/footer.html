@@ -29,12 +29,11 @@
           <div class="footer-widget">
             <h4 class="font-size-6 text-white mb-8">دسترسی سریع</h4>
             <ul class="list-unstyled">
-              <li class="mb-4"><a href="#" class="text-white-2 font-size-4">درباره ما</a></li>
-              <li class="mb-4"><a href="#" class="text-white-2 font-size-4">تماس با ما</a></li>
-              {% comment %} <li class="mb-4"><a href="#" class="text-white-2 font-size-4">قوانین و مقررات</a></li>
-              <li class="mb-4"><a href="#" class="text-white-2 font-size-4">حریم خصوصی</a></li>
-              <li><a href="#" class="text-white-2 font-size-4">سوالات متداول</a></li> {% endcomment %}
-            </ul>
+              <li class="mb-4"><a href="{% url 'core:about' %}" class="text-white-2 font-size-4">درباره ما</a></li>
+              <li class="mb-4"><a href="{% url 'core:contact' %}" class="text-white-2 font-size-4">تماس با ما</a></li>
+               {% comment %} <li class="mb-4"><a href="#" class="text-white-2 font-size-4">قوانین و مقررات</a></li>
+              <li class="mb-4"><a href="#" class="text-white-2 font-size-4">حریم خصوصی</a></li> {% endcomment %}
+              <li><a href="{% url 'core:faq' %}" class="text-white-2 font-size-4">سوالات متداول</a></li> 
           </div>
         </div>
 
