@@ -13,6 +13,16 @@
     max-height: 4.5em;
     min-height: 3em;
   }
+  .file-type-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  .file-type-pdf { background-color: #ffebee; color: #c62828; }
+  .file-type-word { background-color: #e3f2fd; color: #1565c0; }
+  .file-type-excel { background-color: #e8f5e9; color: #2e7d32; }
+  .file-type-other { background-color: #f3e5f5; color: #6a1b9a; }
 </style>
 
   <div class="site-wrapper overflow-hidden ">
@@ -189,11 +199,11 @@
           </div>
           <div class="col-12 col-md-8 col-xs-12 ">
             <!-- form -->
-            <form method="get" class="search-form search-2-adjustment ml-lg-0 ml-md-15">
+            <form method="get" class="search-form">
               <div class="filter-search-form-2 bg-white rounded-sm shadow-7 pr-6 py-6 pl-6">
                 <div class="filter-inputs">
                   <div class="form-group position-relative w-lg-45 w-xl-40 w-xxl-45">
-                    <input class="form-control focus-reset pl-13" type="text" name="keyword" id="keyword" placeholder="عنوان فایل" value="{{ search_keyword|default:'' }}">
+                    <input class="form-control focus-reset pl-13" type="text" name="keyword" id="keyword" placeholder="جستجوی فایل‌ها" value="{{ search_keyword|default:'' }}">
                     <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
                     <i class="icon icon-zoom-2 text-primary font-weight-bold"></i>
                   </span>
@@ -218,29 +228,61 @@
                 </div>
               </div>
             </form>
-            <div class="pt-12 ml-lg-0 ml-md-15">
+            <div class="pt-12">
               <div class="d-flex align-items-center justify-content-between">
                 <h5 class="font-size-4 font-weight-normal text-default-color">
                   <span class="heading-default-color">{{ files|length }}</span>
-                  نتایج برای <span class="heading-default-color">محصول</span>
+                  نتیجه برای جستجوی شما
                 </h5>
                 
               </div>
               <div class="pt-6">
                 <div class="row justify-content-center">
                   {% for file in files %}
+                    {% if file.slug %}
                     <div class="col-12 col-lg-6">
                       <!-- Start Feature One -->
                       <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
                         <div class="d-block mb-7">
-                          <a href="#"><img src="{% static 'image/l1/png/feature-brand-1.png' %}" alt=""></a>
+                          <a href="{% url 'core:jobdetails' slug=file.slug %}">
+                            {% if file.file_type == 'pdf' %}
+                              <i class="fas fa-file-pdf fa-3x text-danger"></i>
+                            {% elif file.file_type == 'word' %}
+                              <i class="fas fa-file-word fa-3x text-primary"></i>
+                            {% elif file.file_type == 'excel' %}
+                              <i class="fas fa-file-excel fa-3x text-success"></i>
+                            {% else %}
+                              <i class="fas fa-file fa-3x text-secondary"></i>
+                            {% endif %}
+                          </a>
                         </div>
-                        <h2 class="mt-n4"><a class="font-size-7 text-black-2 font-weight-bold mb-4" href="{% url 'core:jobdetails' slug=file.slug %}">{{ file.title }}</a></h2>
+                        <h2 class="mt-n4">
+                          <a class="font-size-7 text-black-2 font-weight-bold mb-4" href="{% url 'core:jobdetails' slug=file.slug %}">
+                            {{ file.title }}
+                          </a>
+                        </h2>
                         <ul class="list-unstyled mb-1 card-tag-list">
-                          <li><span class="bg-regent-opacity-15 text-denim font-size-3 rounded-3"><i class="icon icon-pin-3 mr-2 font-weight-bold"></i> {{ file.file_type }}</span></li>
-                          <li><span class="bg-regent-opacity-15 text-orange font-size-3 rounded-3"><i class="fa fa-briefcase mr-2 font-weight-bold"></i> {{ file.project_manager }}</span></li>
-                          <li><span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3"><i class="fa fa-dollar-sign mr-2 font-weight-bold"></i> {% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}</span></li>
-                          <li><span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3"><i class="fa fa-file mr-2 font-weight-bold"></i> {{ file.file_size }} بایت</span></li>
+                          <li>
+                            <span class="file-type-badge file-type-{{ file.file_type }}">
+                              <i class="fas fa-file mr-2"></i> {{ file.get_file_type_display }}
+                            </span>
+                          </li>
+                          <li>
+                            <span class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                              <i class="fa fa-user mr-2 font-weight-bold"></i> {{ file.project_manager }}
+                            </span>
+                          </li>
+                          <li>
+                            <span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                              <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>
+                              {% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}
+                            </span>
+                          </li>
+                          <li>
+                            <span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                              <i class="fa fa-file mr-2 font-weight-bold"></i> {{ file.file_size|filesizeformat }}
+                            </span>
+                          </li>
                         </ul>
                         <p class="mb-7 font-size-4 text-gray truncate-description">{{ file.description|truncatewords:20 }}</p>
                         <div class="card-btn-group">
@@ -248,6 +290,13 @@
                         </div>
                       </div>
                       <!-- End Feature One -->
+                    </div>
+                    {% endif %}
+                  {% empty %}
+                    <div class="col-12">
+                      <div class="alert alert-info text-center">
+                        هیچ فایلی با این مشخصات یافت نشد.
+                      </div>
                     </div>
                   {% endfor %}
                 </div>

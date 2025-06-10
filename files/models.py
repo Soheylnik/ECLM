@@ -2,6 +2,63 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 from django.urls import reverse
+import re
+
+def create_slug(text):
+    # تبدیل حروف فارسی به معادل انگلیسی
+    persian_to_english = {
+        'ا': 'a', 'ب': 'b', 'پ': 'p', 'ت': 't', 'ث': 's', 'ج': 'j', 'چ': 'ch',
+        'ح': 'h', 'خ': 'kh', 'د': 'd', 'ذ': 'z', 'ر': 'r', 'ز': 'z', 'ژ': 'zh',
+        'س': 's', 'ش': 'sh', 'ص': 's', 'ض': 'z', 'ط': 't', 'ظ': 'z', 'ع': 'a',
+        'غ': 'gh', 'ف': 'f', 'ق': 'gh', 'ک': 'k', 'گ': 'g', 'ل': 'l', 'م': 'm',
+        'ن': 'n', 'و': 'v', 'ه': 'h', 'ی': 'y', 'ئ': 'y', 'ء': 'a',
+        '۰': '0', '۱': '1', '۲': '2', '۳': '3', '۴': '4',
+        '۵': '5', '۶': '6', '۷': '7', '۸': '8', '۹': '9',
+        ' ': '-', '_': '-', '.': '-', '/': '-', '\\': '-',
+    }
+    
+    # تبدیل متن به حروف کوچک
+    text = text.lower()
+    
+    # تبدیل حروف فارسی به انگلیسی
+    for persian, english in persian_to_english.items():
+        text = text.replace(persian, english)
+    
+    # حذف کاراکترهای غیر مجاز
+    text = re.sub(r'[^a-z0-9-]', '', text)
+    
+    # حذف خط تیره‌های تکراری
+    text = re.sub(r'-+', '-', text)
+    
+    # حذف خط تیره از ابتدا و انتها
+    text = text.strip('-')
+    
+    return text
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name="نام دسته‌بندی")
+    slug = models.SlugField(max_length=100, unique=True, verbose_name="اسلاگ")
+    description = models.TextField(blank=True, verbose_name="توضیحات")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ ایجاد")
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = create_slug(self.name)
+            slug = base_slug
+            counter = 1
+            while Category.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "دسته‌بندی"
+        verbose_name_plural = "دسته‌بندی‌ها"
+        ordering = ['name']
 
 class UploadedFile(models.Model):
     FILE_TYPES = [
@@ -15,6 +72,7 @@ class UploadedFile(models.Model):
     description = models.TextField(blank=True, verbose_name="توضیحات")
     file = models.FileField(upload_to='uploaded_files/', verbose_name="فایل")
     file_type = models.CharField(max_length=10, choices=FILE_TYPES, verbose_name="نوع فایل")
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="دسته‌بندی")
     uploaded_at = models.DateTimeField(auto_now_add=True, verbose_name="تاریخ آپلود")
     project_manager = models.CharField(max_length=255, verbose_name="مدیر پروژه")
     is_free = models.BooleanField(default=False, verbose_name="رایگان؟")

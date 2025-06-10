@@ -254,3 +254,84 @@
       </div>
     </div>
    {% endblock %} 
+
+<style>
+  .file-type-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+  .file-type-pdf { background-color: #ffebee; color: #c62828; }
+  .file-type-word { background-color: #e3f2fd; color: #1565c0; }
+  .file-type-excel { background-color: #e8f5e9; color: #2e7d32; }
+  .file-type-other { background-color: #f3e5f5; color: #6a1b9a; }
+</style>
+
+<div class="site-wrapper overflow-hidden">
+  <div class="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="bg-white px-8 pt-9 pb-7 rounded-4 mb-9">
+            <div class="d-flex align-items-center mb-7">
+              <div class="mr-7">
+                {% if file.file_type == 'pdf' %}
+                  <i class="fas fa-file-pdf fa-4x text-danger"></i>
+                {% elif file.file_type == 'word' %}
+                  <i class="fas fa-file-word fa-4x text-primary"></i>
+                {% elif file.file_type == 'excel' %}
+                  <i class="fas fa-file-excel fa-4x text-success"></i>
+                {% else %}
+                  <i class="fas fa-file fa-4x text-secondary"></i>
+                {% endif %}
+              </div>
+              <div>
+                <h2 class="font-size-7 text-black-2 font-weight-bold mb-4">{{ file.title }}</h2>
+                <ul class="list-unstyled mb-1 card-tag-list">
+                  <li>
+                    <span class="file-type-badge file-type-{{ file.file_type }}">
+                      <i class="fas fa-file mr-2"></i> {{ file.get_file_type_display }}
+                    </span>
+                  </li>
+                  <li>
+                    <span class="bg-regent-opacity-15 text-orange font-size-3 rounded-3">
+                      <i class="fa fa-user mr-2 font-weight-bold"></i> {{ file.project_manager }}
+                    </span>
+                  </li>
+                  <li>
+                    <span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                      <i class="fa fa-dollar-sign mr-2 font-weight-bold"></i>
+                      {% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}
+                    </span>
+                  </li>
+                  <li>
+                    <span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                      <i class="fa fa-file mr-2 font-weight-bold"></i> {{ file.file_size|filesizeformat }}
+                    </span>
+                  </li>
+                  <li>
+                    <span class="bg-regent-opacity-15 text-eastern font-size-3 rounded-3">
+                      <i class="fa fa-calendar mr-2 font-weight-bold"></i> {{ file.uploaded_at|date:"Y/m/d" }}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h4 class="font-size-4 text-black-2 font-weight-semibold mb-4">توضیحات</h4>
+              <p class="font-size-4 text-black-2">{{ file.description|linebreaks }}</p>
+            </div>
+
+            <div class="card-btn-group">
+              <a class="btn btn-green text-uppercase btn-medium rounded-3" href="{% url 'core:download_file' slug=file.slug %}">
+                دانلود فایل
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

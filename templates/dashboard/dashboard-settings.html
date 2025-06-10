@@ -46,10 +46,10 @@
           <div class="collapse navbar-collapse" id="mobile-menu">
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
-                <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="{% url 'core:home' %}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i ></i></a>
-                  
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'core:home' %}">خانه</a>
                 </li>
+                
                 
                 <li class="nav-item">
                   <a class="nav-link" href="#">پشتیبانی</a>
@@ -63,12 +63,7 @@
            {% if user.is_authenticated %}
   <!-- اگر کاربر وارد شده باشد -->
   <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-    <div>
-      <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
-        <i class="fas fa-bell heading-default-color"></i>
-        <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
-      </a>
-    </div>
+    
     <div>
       <div class="dropdown show-gr-dropdown py-5">
         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -266,10 +261,12 @@
       </div>
      
       <ul class="list-unstyled dashboard-layout-sidebar">
-        <li class=""><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
+        
         <li class=""><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
        
+        {% if user.is_staff %}
         <li class="active"><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+        {% endif %}
       </ul>
     </div>
     <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
@@ -277,108 +274,36 @@
     </a>
     <div class="dashboard-main-container mt-24 mt-lg-31" id="dashboard-body">
       <div class="container">
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-success">{{ message }}</div>
-          {% endfor %}
-        {% endif %}
-        {% if product_form %}
-          <div class="mb-5">
-            <h4 class="mb-3">افزودن محصول جدید</h4>
-            <form method="post" enctype="multipart/form-data">
-              {% csrf_token %}
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="id_title">عنوان فایل</label>
-                    <input type="text" class="form-control" name="title" id="id_title" value="{{ product_form.title.value|default_if_none:'' }}">
-                    {% if product_form.title.errors %}<div class="text-danger">{{ product_form.title.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="id_file">فایل</label>
-                    <input type="file" class="form-control" name="file" id="id_file">
-                    {% if product_form.file.errors %}<div class="text-danger">{{ product_form.file.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="id_file_type">نوع فایل</label>
-                    <select name="file_type" id="id_file_type" class="form-control">
-                      <option value="">انتخاب کنید</option>
-                      {% for value, label in product_form.fields.file_type.choices %}
-                        <option value="{{ value }}" {% if product_form.file_type.value == value %}selected{% endif %}>{{ label }}</option>
-                      {% endfor %}
-                    </select>
-                    {% if product_form.file_type.errors %}<div class="text-danger">{{ product_form.file_type.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="id_project_manager">مدیر پروژه</label>
-                    <input type="text" class="form-control" name="project_manager" id="id_project_manager" value="{{ product_form.project_manager.value|default_if_none:'' }}">
-                    {% if product_form.project_manager.errors %}<div class="text-danger">{{ product_form.project_manager.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="id_description">توضیحات</label>
-                <textarea class="form-control" name="description" id="id_description">{{ product_form.description.value|default_if_none:'' }}</textarea>
-                {% if product_form.description.errors %}<div class="text-danger">{{ product_form.description.errors.0 }}</div>{% endif %}
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="id_is_free">رایگان؟</label>
-                    <input type="checkbox" name="is_free" id="id_is_free" {% if product_form.is_free.value %}checked{% endif %}>
-                    {% if product_form.is_free.errors %}<div class="text-danger">{{ product_form.is_free.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="id_price">قیمت (ریال)</label>
-                    <input type="number" class="form-control" name="price" id="id_price" value="{{ product_form.price.value|default_if_none:'' }}">
-                    {% if product_form.price.errors %}<div class="text-danger">{{ product_form.price.errors.0 }}</div>{% endif %}
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary">افزودن محصول</button>
-            </form>
-          </div>
-        {% endif %}
         <div class="mb-15 mb-lg-23">
           <div class="row">
             <div class="col-xxxl-9 px-lg-13 px-6">
-              <h5 class="font-size-6 font-weight-semibold mb-11"> بروزرسانی پروفایل شرکت</h5>
+              <h5 class="font-size-6 font-weight-semibold mb-11"> افزودن محصول</h5>
               <div class="contact-form bg-white shadow-8 rounded-4 pl-sm-10 pl-4 pr-sm-11 pr-4 pt-15 pb-13">
                 <div class="upload-file mb-16 text-center">
                   <div id="userActions" class="square-144 m-auto px-6 mb-7">
                     <label for="fileUpload" class="mb-0 font-size-4 text-smoke">انتخاب کنید یا بکشید و بیندازید</label>
-                    <input type="file" id="fileUpload" class="sr-only" />
+                    <input type="file" id="fileUpload" name="file" class="sr-only" />
                   </div>
-                  <!-- <img id="imgPrime" src="" alt="uploaded image placeholder" /> -->
-                  <!-- <input type="file" id="upfile"> -->
                 </div>
-                <form action="https://uxtheme.net/">
+                <form action="{% url 'core:dashboard_settings' %}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
                   <fieldset>
                     <div class="row mb-xl-1 mb-9">
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label for="namedash" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">نام شرکت</label>
-                          <input type="text" class="form-control h-px-48" id="namedash" placeholder="مثلا اپل">
+                          <label for="namedash" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">عنوان فایل</label>
+                          <input type="text" class="form-control h-px-48" id="namedash" name="title" placeholder="عنوان فایل را وارد کنید">
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">نوع شرکت</label>
-                          <select id="select2" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
-                            <option>B2B</option>
-                            <option>B3B</option>
-                            <option>B4B</option>
-                            <option>B5B</option>
+                          <label for="select2" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">نوع فایل</label>
+                          <select id="select2" name="file_type" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
+                            <option value="">انتخاب کنید</option>
+                            <option value="PDF">PDF</option>
+                            <option value="Word">Word</option>
+                            <option value="Excel">Excel</option>
+                            <option value="سایر">سایر</option>
                           </select>
                         </div>
                       </div>
@@ -386,43 +311,44 @@
                     <div class="row mb-8">
                       <div class="col-lg-6 mb-xl-0 mb-7">
                         <div class="form-group position-relative">
-                          <label for="select3" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">اندازه شرکت </label>
-                          <select id="select3" class="form-control nice-select pl-6 arrow-3 h-px-48 w-100 font-size-4">
-                            <option>10-50</option>
-                            <option>50-70</option>
-                            <option>70-80</option>
-                            <option>80-90</option>
-                            <option>90-100</option>
-                          </select>
+                          <label for="select3" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">قیمت محصول (ریال)</label>
+                          <input type="number" class="form-control h-px-48" id="select3" name="price" placeholder="قیمت را وارد کنید">
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group position-relative">
-                          <label for="address" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">محل یا دورکاری</label>
-                          <select name="address" id="address" class="nice-select pl-6 h-px-48 arrow-3 w-100 font-size-4">
-                            <option value="">مثلا . نیویورک, نومین 201, آمریکا</option>
-                            <option value="">مثلا . نیویورک, نومین 202, آمریکا</option>
-                            <option value="">مثلا . نیویورک, نومین 203, آمریکا</option>
-                            <option value="">مثلا . نیویورک, نومین 204, آمریکا</option>
-                            <option value="">مثلا . نیویورک, نومین 205, آمریکا</option>
+                          <label for="address" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">دسته‌بندی محصول</label>
+                          <select name="category" id="address" class="nice-select pl-6 h-px-48 arrow-3 w-100 font-size-4">
+                            <option value="">انتخاب کنید</option>
+                            {% for category in categories %}
+                              <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
                           </select>
-                          <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"></span>
+                          <form method="post" action="" class="mt-2 d-flex align-items-center">
+                            {% csrf_token %}
+                            <input type="text" name="new_category" class="form-control ml-2" placeholder="افزودن دسته جدید">
+                            <button type="submit" name="add_category" class="btn btn-primary">ثبت دسته</button>
+                          </form>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">درباره شرکت</label>
-                          <textarea name="textarea" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" placeholder="در مورد ویژگی های شرکت  که آن را منحصر به فرد کرده بنویسید"></textarea>
+                          <label for="aboutTextarea" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">توضیحات محصول</label>
+                          <textarea name="description" id="aboutTextarea" cols="30" rows="7" class="border border-mercury text-gray w-100 pt-4 pl-6" placeholder="توضیحات محصول را وارد کنید"></textarea>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group mb-11">
-                          <label for="formGroupExampleInput" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">لینک شرکت</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="https://www.example.com/">
+                          <label for="formGroupExampleInput" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">مدیر پروژه</label>
+                          <input type="text" class="form-control" id="formGroupExampleInput" name="project_manager" placeholder="نام مدیر پروژه را وارد کنید">
                         </div>
-                        <input type="button" value="بروزرسانی پروفایل" class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">
+                        <div class="form-group mb-11">
+                          <label for="is_free" class="d-block text-black-2 font-size-4 font-weight-semibold mb-4">رایگان؟</label>
+                          <input type="checkbox" id="is_free" name="is_free">
+                        </div>
+                        <button type="submit" class="btn btn-green btn-h-60 text-white min-width-px-210 rounded-5 text-uppercase">افزودن محصول</button>
                       </div>
                     </div>
                   </fieldset>

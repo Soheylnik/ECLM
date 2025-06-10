@@ -45,10 +45,10 @@
           <div class="collapse navbar-collapse" id="mobile-menu">
             <div class="navbar-nav-wrapper">
               <ul class="navbar-nav main-menu">
-                <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle gr-toggle-arrow" id="navbarDropdown" href="{% url 'core:home' %}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه<i></i></a>
-                  
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'core:home' %}">خانه</a>
                 </li>
+                
                 <li class="nav-item">
                   <a class="nav-link" href="#">پشتیبانی</a>
                 </li>
@@ -61,12 +61,7 @@
           {% if user.is_authenticated %}
   <!-- اگر کاربر وارد شده باشد -->
   <div class="header-btn-devider ml-auto ml-lg-5 pl-2 d-none d-xs-flex align-items-center">
-    <div>
-      <a href="#" class="px-3 ml-7 font-size-7 notification-block flex-y-center position-relative">
-        <i class="fas fa-bell heading-default-color"></i>
-        <span class="font-size-3 count font-weight-semibold text-white bg-primary circle-24 border border-width-3 border border-white">3</span>
-      </a>
-    </div>
+   
     <div>
       <div class="dropdown show-gr-dropdown py-5">
         <a class="proile media ml-7 flex-y-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,7 +72,7 @@
         </a>
         <div class="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">تنظیمات</a>
-          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_posted_jobs' %}">ویرایش پروفایل</a>
+          <a class="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="{% url 'core:dashboard_posted_jobs' %}">فایل های خریداری شده</a>
           <a class="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase" href="#">خروج</a>
         </div>
       </div>
@@ -266,7 +261,9 @@
         <li class="active"><a href="dashboard-main.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="icon icon-layout-11 mr-7"></i>دشبرد</a></li>
         <li class=""><a href="dashboard-posted-jobs.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-briefcase mr-7"></i>فایل های خریداری شده</a></li>
        
+        {% if user.is_staff %}
         <li class=""><a href="dashboard-settings.html" class="px-10 py-1 my-5 font-size-4 font-weight-semibold flex-y-center"><i class="fas fa-cog mr-7"></i>تنظیمات</a></li>
+        {% endif %}
       </ul>
     </div>
     <a class="sidebar-mobile-button" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
