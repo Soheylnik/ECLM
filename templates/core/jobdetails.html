@@ -212,7 +212,7 @@
                           {% if has_purchased %}
                             <a class="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:download_file' slug=file.slug %}">دانلود فایل</a>
                           {% else %}
-                            <a class="btn btn-primary text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="{% url 'core:add_to_cart' slug=file.slug %}">افزودن به سبد خرید</a>
+                            <a class="btn btn-primary text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" href="#">افزودن به سبد خرید</a>
                           {% endif %}
                         {% else %}
                           <button class="btn btn-primary text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5" data-toggle="modal" data-target="#login">ورود و خرید</button>
@@ -253,7 +253,7 @@
                   <div class="col-md-4 pl-lg-0">
                     <div class="">
                       <span class="font-size-4 d-block mb-4 text-gray">اندازه فایل</span>
-                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">{{ file.file_size }} بایت</h6>
+                      <h6 class="font-size-5 text-black-2 font-weight-semibold mb-0">{{ file.file_size|filesizeformat }}</h6>
                     </div>
                   </div>
                 </div>
@@ -263,7 +263,8 @@
                   <div class="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                     <div class="">
                       <p class="mb-4 font-size-4 text-gray">توضیحات فایل</p>
-                      <p class="font-size-4 text-black-2 mb-7">{{ file.description }}</p>
+                      <p class="font-size-4 text-black-2 mb-7">{{ file.description|linebreaksbr }}</p>
+
                     </div>
               
                   </div>

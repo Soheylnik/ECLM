@@ -5,340 +5,457 @@
 {% block content %}
 {% load humanize %}
 <style>
-  /* استایل‌های ریسپانسیو */
-  @media (max-width: 768px) {
-    .filter-inputs {
-      flex-direction: column !important;
-    }
-    .form-group {
-      width: 100% !important;
-      margin-bottom: 10px !important;
-    }
-    .button-block {
-      width: 100% !important;
-      margin-right: 0 !important;
-    }
-    .brand-logos {
-      flex-wrap: wrap !important;
-    }
-    .single-brand-logo {
-      width: 50% !important;
-      margin: 10px 0 !important;
-    }
+  body, .site-wrapper { background: linear-gradient(120deg, #e0f7fa 0%, #e9f7ef 100%) !important; }
+  .hero-section {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+    margin-bottom: 0;
   }
-  
-  /* استایل‌های فرم جستجو */
-  .search-form {
-    position: relative !important;
-    z-index: 10 !important;
+  .hero-content {
+    background: rgba(255,255,255,0.92);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(44,204,113,0.10);
+    padding: 48px 36px 36px 36px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s cubic-bezier(.4,2,.6,1) both;
   }
-  .filter-search-form-2 {
-    background: white !important;
-    border-radius: 8px !important;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
-    padding: 20px !important;
+  .hero-content h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #2d3436;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
   }
-  .filter-inputs {
-    display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 15px !important;
+  .hero-content .subtitle {
+    font-size: 1.1rem;
+    color: #009688;
+    margin-bottom: 32px;
   }
-  .form-group {
-    flex: 1 1 200px !important;
-    margin-bottom: 0 !important;
+  .search-form-modern {
+    background: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #2ecc7112;
+    padding: 18px 24px 10px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
   }
-  .button-block {
-    flex: 0 0 auto !important;
+  .search-form-modern .form-group {
+    flex: 1 1 180px;
+    margin-bottom: 0;
+    position: relative;
   }
-  .nice-select {
-    width: 100% !important;
-    height: 100% !important;
+  .search-form-modern .form-control, .search-form-modern .nice-select {
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    padding: 0 16px 0 40px;
+    font-size: 1rem;
+    background: #fff;
   }
-  .form-control {
-    height: 50px !important;
-    padding: 10px 15px !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 4px !important;
+  .search-form-modern .icon-input {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2ecc71;
+    font-size: 1.2rem;
   }
-  .btn-submit {
-    height: 50px !important;
-    padding: 0 30px !important;
-    background: #2ecc71 !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 4px !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
+  .search-form-modern .btn-submit {
+    background: linear-gradient(90deg, #2ecc71 0%, #009688 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 0 32px;
+    height: 48px;
+    transition: background 0.2s;
   }
-  .btn-submit:hover {
-    background: #27ae60 !important;
-    transform: translateY(-2px) !important;
+  .search-form-modern .btn-submit:hover {
+    background: linear-gradient(90deg, #009688 0%, #2ecc71 100%);
   }
-  
-  /* استایل‌های متن */
-  .text-black-2 {
-    color: #2d3436 !important;
+  /* Company About Section */
+  .company-about-top, .company-about-bottom {
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(44,204,113,0.08);
+    margin-bottom: 24px;
+    background: #fff;
+    padding: 40px 32px;
+    animation: fadeInUp 0.8s cubic-bezier(.4,2,.6,1) both;
   }
-  .heading-default-color {
-    color: #2d3436 !important;
+  .company-about-top {
+    background: linear-gradient(120deg, #f0f4f8 0%, #e9f7ef 100%);
   }
-  
-  /* استایل‌های لوگوهای برند */
-  .brand-logos {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 30px !important;
-    padding: 40px 0 !important;
+  .company-about-logo {
+    max-width: 110px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 2px 8px #2ecc7140);
   }
-  .single-brand-logo {
-    flex: 0 0 auto !important;
-    text-align: center !important;
+  .company-about-top h3 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #2d3436;
   }
-  .single-brand-logo img {
-    max-width: 150px !important;
-    height: auto !important;
-    opacity: 0.7 !important;
-    transition: all 0.3s ease !important;
+  .company-about-top .badge {
+    background: #2ecc71;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 6px 18px;
+    margin-top: 8px;
   }
-  .single-brand-logo img:hover {
-    opacity: 1 !important;
-    transform: scale(1.05) !important;
+  .company-about-top .mission-item {
+    background: #e9f7ef;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 15px;
+    color: #2d3436;
+    display: inline-block;
+    margin-left: 8px;
+    margin-bottom: 8px;
   }
-  
-  /* استایل‌های کارت‌ها */
-  .card {
-    background: white !important;
-    border-radius: 8px !important;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
-    transition: all 0.3s ease !important;
-    overflow: hidden !important;
+  .company-about-top .divider {
+    margin: 18px 0;
   }
-  .card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.15) !important;
+  .company-about-bottom .timeline {
+    border-right: 2px solid #2ecc7130;
+    padding-right: 18px;
+    margin-right: 8px;
   }
-  
-  /* استایل‌های آیکون */
-  .icon {
-    color: #2ecc71 !important;
+  .company-about-bottom .timeline-item {
+    position: relative;
+    padding-right: 24px;
+    margin-bottom: 10px;
   }
-  
-  /* استایل‌های دکمه */
-  .btn {
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    transition: all 0.3s ease !important;
+  .company-about-bottom .timeline-dot {
+    position: absolute;
+    right: -13px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px #2ecc7130;
+    display: inline-block;
   }
-  .btn:hover {
-    transform: translateY(-2px) !important;
+  .company-about-bottom .info-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #2ecc7112;
+    padding: 18px 16px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s;
   }
-  
-  /* استایل‌های دسته‌بندی‌ها */
-  .category-card {
-    text-align: center !important;
-    padding: 30px 20px !important;
-    border-radius: 8px !important;
-    background: white !important;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
-    transition: all 0.3s ease !important;
+  .company-about-bottom .info-box:hover {
+    box-shadow: 0 4px 16px #2ecc7130;
   }
-  .category-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.15) !important;
+  /* Categories Section */
+  .category-card-modern {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #2ecc7112;
+    padding: 28px 12px 18px 12px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .category-icon {
-    width: 70px !important;
-    height: 70px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto 20px !important;
-    font-size: 24px !important;
-    color: white !important;
+  .category-card-modern:hover {
+    box-shadow: 0 8px 32px #2ecc7130;
+    transform: translateY(-4px) scale(1.03);
   }
-  
-  /* استایل‌های بخش مشاغل */
-  .job-card {
-    padding: 25px !important;
-    border-radius: 8px !important;
-    background: white !important;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1) !important;
-    transition: all 0.3s ease !important;
-    margin-bottom: 20px !important;
+  .category-card-modern .category-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2ecc71 0%, #009688 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    margin: 0 auto 14px auto;
+    box-shadow: 0 2px 8px #2ecc7130;
   }
-  .job-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.15) !important;
+  .category-card-modern h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 6px;
   }
-  .job-tags {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px !important;
-    margin-top: 15px !important;
+  .category-card-modern p {
+    color: #888;
+    font-size: 0.98rem;
   }
-  .job-tag {
-    padding: 5px 15px !important;
-    border-radius: 20px !important;
-    background: #f8f9fa !important;
-    color: #2d3436 !important;
-    font-size: 14px !important;
+  /* Featured Products Section */
+  .featured-product-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px #2ecc7112;
+    padding: 24px 16px 18px 16px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-product-card:hover {
+    box-shadow: 0 8px 32px #2ecc7130;
+    transform: translateY(-4px) scale(1.02);
+  }
+  .featured-product-card .product-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    object-fit: cover;
+    margin-left: 14px;
+    box-shadow: 0 2px 8px #2ecc7130;
+  }
+  .featured-product-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 4px;
+  }
+  .featured-product-card .product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .featured-product-card .product-tag {
+    background: #e9f7ef;
+    color: #009688;
+    border-radius: 8px;
+    padding: 4px 14px;
+    font-size: 0.93rem;
+    font-weight: 500;
+  }
+  .featured-product-card .product-price {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2ecc71;
+    margin-bottom: 0;
+  }
+  .featured-product-card .btn {
+    background: linear-gradient(90deg, #2ecc71 0%, #009688 100%);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 6px 24px;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  .featured-product-card .btn:hover {
+    background: linear-gradient(90deg, #009688 0%, #2ecc71 100%);
+  }
+  /* Responsive */
+  @media (max-width: 1199px) {
+    .company-about-top, .company-about-bottom { padding: 28px 10px; }
+    .hero-content { padding: 32px 10px 24px 10px; }
+  }
+  @media (max-width: 991px) {
+    .featured-product-card { padding: 14px 4px 12px 4px; }
+    .category-card-modern { padding: 14px 4px 10px 4px; min-height: 140px; }
+  }
+  @media (max-width: 767px) {
+    .hero-section { min-height: 220px; }
+    .company-about-logo { max-width: 70px; }
+    .company-about-top, .company-about-bottom { padding: 12px 2px; }
+    .category-card-modern { padding: 8px 2px 6px 2px; min-height: 100px; }
+    .featured-product-card { padding: 8px 2px 6px 2px; }
+    .hero-content h1 { font-size: 1.2rem; }
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: none; }
   }
 </style>
-
 <div class="site-wrapper overflow-hidden">
   <!-- Hero Area -->
-  <div class="position-relative z-index-1 bg-squeeze pt-26 dark-mode-texts">
-    <div class="pos-abs-tr h-100">
-      <img src="{% static 'image/patterns/globe-pattern.png' %}" alt="" class="h-100">
+  <div class="hero-section" style="margin-top:40px;">
+    <div class="hero-content">
+      <h1>تحقیقات زبانشناسی پیکره‌ای و تحلیل متون فارسی</h1>
+      <div class="subtitle">پژوهش‌های پیشرفته در زبان‌شناسی، نرم‌افزارهای تحلیلی بومی و آموزش زبان انگلیسی</div>
+      <form action="{% url 'core:search-grid' %}" class="search-form-modern" method="GET">
+        <div class="form-group">
+          <input class="form-control" type="text" id="keyword" name="keyword" placeholder="جستجوی فایل‌ها">
+          <span class="icon-input"><i class="icon icon-zoom-2"></i></span>
+        </div>
+        <div class="form-group">
+          <select name="file_type" id="file_type" class="nice-select">
+            <option data-display="نوع فایل">نوع فایل</option>
+            <option value="pdf">PDF</option>
+            <option value="doc">Word</option>
+            <option value="xls">Excel</option>
+            <option value="other">سایر</option>
+          </select>
+          <span class="icon-input"><i class="icon icon-pin-3"></i></span>
+        </div>
+        <button class="btn btn-submit">جستجو</button>
+      </form>
     </div>
-    <div class="container position-static">
-      <div class="row position-relative align-items-center position-static">
-        <div class="col-xxl-7 col-xl-8 col-lg-9 pt-lg-23 pb-lg-33 pb-md-28 pb-xs-26 pb-29 pt-md-20">
-          <div class="row">
-            <div class="col-xxl-8 col-xl-7 col-md-8 col-sm-10">
-              <div class="text-primary font-size-5 font-weight-semibold mb-7 text-black-2">
-                تحقیقات زبانشناسی پیکره ای و تحلیل متون فارسی
+  </div>
+  <!-- Company About Section -->
+  <div class="container my-10">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <!-- Top Block: Logo, Name, Mission, Product -->
+        <div class="company-about-top mb-4">
+          <div class="row align-items-center">
+            <div class="col-md-3 text-center mb-4 mb-md-0">
+              <img src="{% static 'image/svg/company-profile.svg' %}" alt="لوگو شرکت" class="company-about-logo">
+              <h3 class="mt-3 font-weight-bold">واژه‌شناسی پیکره زبانی شرق</h3>
+              <span class="badge">تأسیس ۱۴۰1</span>
+            </div>
+            <div class="col-md-9">
+              <h4 class="font-size-5 font-weight-bold mb-3 text-primary"><i class="fa fa-bullseye ml-2"></i> ماموریت و اهداف</h4>
+              <div class="d-flex flex-wrap align-items-center mb-2">
+                <span class="mission-item"><i class="fa fa-check-circle text-success ml-1"></i> توسعه فناوری‌های NLP</span>
+                <span class="mission-item"><i class="fa fa-database text-info ml-1"></i> بانک‌های داده زبانی</span>
+                <span class="mission-item"><i class="fa fa-laptop-code text-warning ml-1"></i> راهکارهای نرم‌افزاری تحلیل متون</span>
               </div>
-              <h1 class="font-size-5 text-black-2">پژوهش های پیشرفته در زبانشناسی,نرم افزار هاب تحلیلی بومی ,و اموزش زبان انگلیسی</h1>
-              
+              <div class="divider my-3" style="height:1px; background:linear-gradient(90deg,#2ecc71 0,#e9f7ef 100%); opacity:.2;"></div>
+              <h5 class="font-size-4 font-weight-bold text-black-2 mb-2"><i class="fa fa-cogs ml-1 text-info"></i> محصول اصلی</h5>
+              <div class="d-flex align-items-center mb-2"><span class="font-size-4 font-weight-bold text-primary">IRConc</span> <span class="font-size-3 text-muted mr-2">ابزار تحلیل پیکره‌های زبانی</span></div>
+              <ul class="list-unstyled pr-3 mb-0">
+                <li><i class="fa fa-dot-circle text-secondary ml-1"></i> Tokenization, Lemmatization, POS Tagging</li>
+                <li><i class="fa fa-dot-circle text-secondary ml-1"></i> تحلیل آماری داده‌های زبانی</li>
+                <li><i class="fa fa-dot-circle text-secondary ml-1"></i> استخراج الگوهای زبانی و واژه‌شناسی</li>
+              </ul>
             </div>
           </div>
         </div>
-        <!-- Hero Form -->
-        <div class="col-lg-11 col-12 translateY-50 pos-abs-bl">
-          <form action="{% url 'core:search-grid' %}" class="search-form" method="GET">
-            <div class="filter-search-form-2">
-              <div class="filter-inputs">
-                <div class="form-group position-relative">
-                  <input class="form-control focus-reset pl-13" type="text" id="keyword" name="keyword" placeholder="جستجوی فایل‌ها">
-                  <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                    <i class="icon icon-zoom-2 text-primary font-weight-bold"></i>
-                  </span>
+        <!-- Bottom Block: Achievements, Tech, Team, Contact -->
+        <div class="company-about-bottom">
+          <div class="row mb-4">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <h5 class="font-size-4 font-weight-bold text-black-2 mb-3"><i class="fa fa-trophy ml-1 text-warning"></i> دستاوردها و فعالیت‌ها</h5>
+              <div class="timeline">
+                <div class="timeline-item mb-2">
+                  <span class="timeline-dot bg-success"></span>
+                  <span class="font-size-3">جمع‌آوری و پردازش داده‌های زبانی از منابع متنوع</span>
                 </div>
-                <div class="form-group position-relative">
-                  <select name="file_type" id="file_type" class="nice-select pl-13 h-100 arrow-3 font-size-4">
-                    <option data-display="نوع فایل">نوع فایل</option>
-                    <option value="pdf">PDF</option>
-                    <option value="doc">Word</option>
-                    <option value="xls">Excel</option>
-                    <option value="other">سایر</option>
-                  </select>
-                  <span class="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6">
-                    <i class="icon icon-pin-3 text-primary font-weight-bold"></i>
-                  </span>
+                <div class="timeline-item mb-2">
+                  <span class="timeline-dot bg-primary"></span>
+                  <span class="font-size-3">همکاری با دانشگاه‌ها و شرکت‌های فناوری</span>
                 </div>
-                <div class="button-block">
-                  <button class="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">جستجو</button>
+                <div class="timeline-item mb-2">
+                  <span class="timeline-dot bg-danger"></span>
+                  <span class="font-size-3">توسعه ماژول‌های هوش مصنوعی و دیتاست‌های چندزبانه</span>
                 </div>
               </div>
             </div>
-          </form>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <div class="info-box">
+                    <h6 class="font-size-3 font-weight-bold text-black-2 mb-1"><i class="fa fa-tools ml-1 text-info"></i> فناوری‌ها و ابزارها</h6>
+                    <div class="font-size-3">Python, Java, SQL<br>NLTK, SpaCy, Hugging Face<br>Elasticsearch, MongoDB</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-3">
+                  <div class="info-box">
+                    <h6 class="font-size-3 font-weight-bold text-black-2 mb-1"><i class="fa fa-users ml-1 text-success"></i> تیم شرکت</h6>
+                    <div class="font-size-3">متخصصان زبان‌شناسی، مهندسان نرم‌افزار و پژوهشگران هوش مصنوعی</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
   <!-- Categories Section -->
-  <div class="bg-white py-13">
-    <div class="container">
+  <div class="container py-5">
       <div class="row justify-content-center">
         <div class="col-12 col-xl-6 col-lg-7 col-md-9">
-          <div class="text-center mb-12">
-            <h2 class="font-size-10 font-weight-bold mb-8">دسته‌بندی محصولات</h2>
-            <p class="font-size-5 px-5 px-lg-7 px-xl-9 px-xxl-15 mb-6">محصولات ما را بر اساس دسته‌بندی مشاهده کنید</p>
+        <div class="text-center mb-5">
+          <h2 class="font-size-10 font-weight-bold mb-3" style="color:#009688;">دسته‌بندی محصولات</h2>
+          <p class="font-size-5 px-5 px-lg-7 px-xl-9 px-xxl-15 mb-0">محصولات ما را بر اساس دسته‌بندی مشاهده کنید</p>
           </div>
         </div>
       </div>
       <div class="row">
         {% for category_name, count in categories.items %}
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <a href="{% url 'core:search-grid' %}?category={{ category_name }}" class="category-card d-block">
-            <div class="category-icon bg-blue">
+        <a href="{% url 'core:search-grid' %}?category={{ category_name }}" class="category-card-modern d-block">
+          <div class="category-icon">
               <i class="fa fa-folder"></i>
             </div>
-            <h5 class="font-size-5 font-weight-semibold text-black-2 mb-2">{{ category_name }}</h5>
-            <p class="font-size-4 text-gray mb-0">{{ count }} محصول</p>
+          <h5>{{ category_name }}</h5>
+          <p>{{ count }} محصول</p>
           </a>
         </div>
         {% endfor %}
       </div>
     </div>
-  </div>
-
-  <!-- Featured Jobs Section -->
-  <div class="bg-default-1 pt-13 pb-12">
-    <div class="container">
+  <!-- Featured Products Section -->
+  <div class="container pt-4 pb-5">
       <div class="row">
         <div class="col-12">
-          <div class="section-title mb-9 text-center">
-            <h5 class="font-size-5 font-weight-normal text-black-2">
-              محصولات برتر
-            </h5>
+        <div class="section-title mb-5 text-center">
+          <h5 class="font-size-5 font-weight-normal" style="color:#2ecc71;">محصولات برتر</h5>
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
         {% for file in files %}
-        <div class="col-xxl-9 col-xl-9 col-lg-10 mb-8">
-          <div class="job-card">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <div class="media align-items-center">
-                  <div class="square-72 d-block mr-8">
-                    <img src="{% static 'image/l2/png/featured-job-logo-1.png' %}" alt="" class="img-fluid">
-                  </div>
+      <div class="col-xxl-9 col-xl-9 col-lg-10 mb-4">
+        <div class="featured-product-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="{% static 'image/l2/png/featured-job-logo-1.png' %}" alt="" class="product-img">
                   <div>
-                    <h3 class="mb-0">
+              <h3>
                       {% if file.slug %}
-                        <a class="font-size-6 heading-default-color" href="{% url 'core:job-details' file.slug %}">{{ file.title }}</a>
+                  <a class="heading-default-color" href="{% url 'core:job-details' file.slug %}">{{ file.title }}</a>
                       {% else %}
-                        <span class="font-size-6 heading-default-color">{{ file.title }}</span>
+                  <span class="heading-default-color">{{ file.title }}</span>
                       {% endif %}
                     </h3>
                     <a href="{% url 'core:job-details' file.slug %}" class="font-size-3 text-default-color line-height-2">{{ file.project_manager }}</a>
                   </div>
                 </div>
+          <div class="product-tags">
+            <span class="product-tag">{{ file.get_file_type_display }}</span>
+            <span class="product-tag">{{ file.file_size|filesizeformat }}</span>
+            <span class="product-tag">{{ file.uploaded_at|date:"Y/m/d" }}</span>
+            {% comment %} <span class="product-tag">{{ file.get_category_display }}</span> {% endcomment %}
               </div>
-              <div class="col-md-6 text-right pt-7 pt-md-5">
-                <div class="media justify-content-md-end">
-                  <div class="image mr-5 mt-2">
-                    <img src="{% static 'image/svg/icon-fire-rounded.svg' %}" alt="">
+          <div class="mb-2">
+            <span class="product-price">{% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}</span>
                   </div>
-                  <p class="font-weight-bold font-size-7 text-hit-gray mb-0">
-                    <span class="text-black-2">{% if file.is_free %}رایگان{% else %}{{ file.price|intcomma:False }} ریال{% endif %}</span>
-                  </p>
+          <div class="mb-2">
+            <p class="font-size-4 text-gray mb-0">{{ file.description|truncatechars:150 }}</p>
                 </div>
-              </div>
-            </div>
-            <div class="job-tags">
-              <span class="job-tag">{{ file.get_file_type_display }}</span>
-              <span class="job-tag">{{ file.file_size|filesizeformat }}</span>
-              <span class="job-tag">{{ file.uploaded_at|date:"Y/m/d" }}</span>
-              <span class="job-tag">{{ file.get_category_display }}</span>
-            </div>
-            <div class="mt-4">
-              <p class="font-size-4 text-gray mb-0">{{ file.description|truncatechars:150 }}</p>
-              <div class="mt-3">
-                {% if file.slug %}
-                  <a href="{% url 'core:job-details' file.slug %}" class="btn btn-primary btn-sm">مشاهده جزئیات</a>
-                {% endif %}
-              </div>
+          <div>
+            {% if file.slug %}
+            <a href="{% url 'core:job-details' file.slug %}" class="btn btn-primary btn-sm">مشاهده جزئیات</a>
+          {% endif %}
+
             </div>
           </div>
         </div>
         {% endfor %}
-      </div>
     </div>
   </div>
-
-  <!-- CTA Section -->
-
-
 </div>
 {% endblock %}
